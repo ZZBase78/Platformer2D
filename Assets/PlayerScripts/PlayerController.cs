@@ -3,12 +3,10 @@
     internal sealed class PlayerController
     {
         private Player player;
-        private PlayerView playerView;
 
-        public PlayerController(Player player, PlayerView playerView)
+        public PlayerController(Player player)
         {
             this.player = player;
-            this.playerView = playerView;
         }
     }
 }

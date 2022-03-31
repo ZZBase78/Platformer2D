@@ -2,6 +2,6 @@
 {
     internal sealed class Player
     {
-
+        public PlayerView view;
     }
 }

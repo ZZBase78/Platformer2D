@@ -11,11 +11,7 @@ namespace Platformer2D.Assets.Starter
             PlayerFactory playerFactory = new PlayerFactory();
             Player player = playerFactory.GetPlayer();
 
-            GameObject playerPrefab = Resources.Load<GameObject>(ResourcesPathes.PLAYER);
-            PlayerViewFactory playerViewFactory = new PlayerViewFactory(playerPrefab);
-            PlayerView playerView = playerViewFactory.GetPlayerView();
-
-            PlayerController playerController = new PlayerController(player, playerView);
+            PlayerController playerController = new PlayerController(player);
         }
 
         public void Update(float deltaTime)

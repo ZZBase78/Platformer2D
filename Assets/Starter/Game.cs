@@ -6,17 +6,19 @@ namespace Platformer2D.Assets.Starter
 {
     internal sealed class Game
     {
+        private PlayerController playerController;
+
         public void Start()
         {
             PlayerFactory playerFactory = new PlayerFactory();
             Player player = playerFactory.GetPlayer();
 
-            PlayerController playerController = new PlayerController(player);
+            playerController = new PlayerController(player);
         }
 
         public void Update(float deltaTime)
         {
-
+            playerController.Update(deltaTime);
         }
     }
 }

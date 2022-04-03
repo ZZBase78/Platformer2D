@@ -7,5 +7,12 @@ namespace Platformer2D.Assets.LevelScripts
         public bool isWall;
         public bool isTiled;
         public Tile tile;
+
+        public LevelElement()
+        {
+            isWall = false;
+            isTiled = false;
+            tile = null;
+        }
     }
 }

@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Platformer2D.Assets.PlayerScripts
 {
@@ -28,7 +23,7 @@ namespace Platformer2D.Assets.PlayerScripts
                 direction = Vector3.right;
             }
 
-            player.view.transform.Translate(direction * deltaTime);
+            player.view.transform.Translate(direction * deltaTime * player.moveSpeed);
         }
     }
 }

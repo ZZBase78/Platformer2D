@@ -21,7 +21,6 @@ namespace Platformer2D.Assets.PlayerScripts
         {
             playerMoveController.Move(deltaTime);
             playerAnimation.Update(deltaTime);
-
         }
     }
 }

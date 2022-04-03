@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   width: 10
   height: 10
-  cellWidth: 1
-  cellHeight: 1
+  cellWidth: 10
+  cellHeight: 5
   wallWidth: 1
   wallHeight: 1

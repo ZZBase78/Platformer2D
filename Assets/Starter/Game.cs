@@ -15,6 +15,7 @@ namespace Platformer2D.Assets.Starter
             //playerController = new PlayerController(player);
 
             LevelData levelData = new LevelGenerator().Generate();
+            new LevelDisplay().Display(levelData);
         }
 
         public void Update(float deltaTime)

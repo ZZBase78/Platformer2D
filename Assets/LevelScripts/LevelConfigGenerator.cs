@@ -19,6 +19,10 @@ namespace Platformer2D.Assets.LevelScripts
             //Start cell
             SetReachedCell(0, 0, levelConfig, unreachableCells);
 
+            //Правая верхняя ячейка (выход) не может быть без нижней стены
+            LevelCellConfig exitCellConfig = levelConfig.levelCellConfigs[levelConfig.width - 1, levelConfig.height - 1];
+            exitCellConfig.forbiddenDirectionSet.down = true;
+
             CalculateReachableCells(levelConfig, unreachableCells);
 
             return levelConfig;

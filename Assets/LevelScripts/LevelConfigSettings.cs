@@ -7,5 +7,9 @@ namespace Platformer2D.Assets.LevelScripts
     {
         public int width;
         public int height;
+        public int cellWidth;
+        public int cellHeight;
+        public int wallWidth;
+        public int wallHeight;
     }
 }

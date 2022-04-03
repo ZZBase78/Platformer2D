@@ -1,7 +1,5 @@
 using Platformer2D.Assets.LevelScripts;
 using Platformer2D.Assets.PlayerScripts;
-using Platformer2D.Assets.Settings;
-using UnityEngine;
 
 namespace Platformer2D.Assets.Starter
 {
@@ -16,8 +14,7 @@ namespace Platformer2D.Assets.Starter
 
             //playerController = new PlayerController(player);
 
-            LevelConfigSettings levelConfigSettings = Resources.Load<LevelConfigSettings>(ResourcesPathes.LEVEL_CONFIG_SETTINGS);
-            LevelConfig levelConfig = new LevelConfigGenerator().Generate(levelConfigSettings.width, levelConfigSettings.height);
+            LevelConfig levelConfig = new LevelConfigGenerator().Generate();
         }
 
         public void Update(float deltaTime)

@@ -1,13 +1,18 @@
 ﻿using Platformer2D.Assets.Extention;
+using Platformer2D.Assets.Settings;
 using System.Collections.Generic;
+using UnityEngine;
 
 namespace Platformer2D.Assets.LevelScripts
 {
     internal sealed class LevelConfigGenerator
     {
-        public LevelConfig Generate(int width, int height)
+        public LevelConfig Generate()
         {
-            LevelConfig levelConfig = new LevelConfig(width, height);
+
+            LevelConfigSettings levelConfigSettings = Resources.Load<LevelConfigSettings>(ResourcesPathes.LEVEL_CONFIG_SETTINGS);
+
+            LevelConfig levelConfig = new LevelConfig(levelConfigSettings);
 
             List<LevelCellConfig> unreachableCells = GetUnReachableCells(levelConfig);
 

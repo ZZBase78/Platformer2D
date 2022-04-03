@@ -5,11 +5,13 @@
         public int width;
         public int height;
         public LevelCellConfig[,] levelCellConfigs;
+        public LevelConfigSettings levelConfigSettings;
 
-        public LevelConfig(int width, int height)
+        public LevelConfig(LevelConfigSettings levelConfigSettings)
         {
-            this.width = width;
-            this.height = height;
+            this.levelConfigSettings = levelConfigSettings;
+            this.width = levelConfigSettings.width;
+            this.height = levelConfigSettings.height;
             levelCellConfigs = new LevelCellConfig[width, height];
             StartConfiguration();
         }

@@ -12,7 +12,7 @@ namespace Platformer2D.Assets.PlayerScripts
 
         public void Update()
         {
-            if (Input.GetKeyDown(KeyCode.W))
+            if (Input.GetKeyDown(KeyCode.W) && player.isOnGround)
             {
                 player.view.rigidbodyView.AddForce(Vector2.up * player.jumpForce);
             }

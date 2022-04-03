@@ -1,4 +1,6 @@
 ﻿using Platformer2D.Assets.AnimationScripts;
+using Platformer2D.Assets.Settings;
+using UnityEngine;
 
 namespace Platformer2D.Assets.PlayerScripts
 {
@@ -10,6 +12,7 @@ namespace Platformer2D.Assets.PlayerScripts
         private PlayerMoveController playerMoveController;
         private PlayerScaleController playerScaleController;
         private PlayerJumpController playerJumpController;
+        private PlayerOnGroundController playerOnGroundController;
 
         public PlayerController(Player player)
         {
@@ -21,11 +24,13 @@ namespace Platformer2D.Assets.PlayerScripts
 
             playerScaleController = new PlayerScaleController(player);
             playerJumpController = new PlayerJumpController(player);
-
+            playerOnGroundController = new PlayerOnGroundController(player);
         }
 
         public void Update(float deltaTime)
         {
+            playerOnGroundController.Update();
+
             playerMoveController.Update(deltaTime);
             playerJumpController.Update();
 

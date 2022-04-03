@@ -6,5 +6,6 @@
         public float moveSpeed;
         public float jumpForce;
         public PlayerState playerState;
+        public bool isOnGround;
     }
 }

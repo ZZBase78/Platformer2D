@@ -23,6 +23,7 @@ namespace Platformer2D.Assets.PlayerScripts
 
             player.view = playerViewFactory.GetPlayerView();
             player.playerState = PlayerState.Stand;
+            player.isOnGround = false;
             return player;
         }
 

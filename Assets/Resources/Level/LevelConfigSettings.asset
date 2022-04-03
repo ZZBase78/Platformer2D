@@ -15,6 +15,6 @@ MonoBehaviour:
   width: 10
   height: 10
   cellWidth: 10
-  cellHeight: 4
+  cellHeight: 3
   wallWidth: 1
   wallHeight: 1

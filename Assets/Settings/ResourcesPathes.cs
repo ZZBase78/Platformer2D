@@ -10,5 +10,7 @@
         public const string LEVEL_GRID = "Level/LevelGrid";
 
         public const string WALL_TILEMAP = "Level/WallTilemap";
+
+        public const string CAMERA_MODEL = "Camera/CameraModel";
     }
 }

@@ -7,6 +7,7 @@
             LevelConfig levelConfig = new LevelConfigGenerator().Generate();
             LevelData levelData = new LevelData(levelConfig);
             new LevelBoolWallPlacer(levelData).PlaceBoolWall();
+            new LevelWallTileCalulator(levelData).Calulate();
 
             return levelData;
         }

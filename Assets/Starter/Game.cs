@@ -9,18 +9,21 @@ namespace Platformer2D.Assets.Starter
 
         public void Start()
         {
-            //PlayerFactory playerFactory = new PlayerFactory();
-            //Player player = playerFactory.GetPlayer();
-
-            //playerController = new PlayerController(player);
 
             LevelData levelData = new LevelGenerator().Generate();
             new LevelDisplay().Display(levelData);
+
+            PlayerFactory playerFactory = new PlayerFactory();
+            Player player = playerFactory.GetPlayer();
+
+            new PlayerStartPosition().MoveToStart(player.view.transform, levelData);
+
+            playerController = new PlayerController(player);
         }
 
         public void Update(float deltaTime)
         {
-            //playerController.Update(deltaTime);
+            playerController.Update(deltaTime);
         }
     }
 }

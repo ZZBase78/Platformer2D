@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62a3b3480d645184185657064dfc5679, type: 3}
+  m_Name: LevelWallsTilesSet
+  m_EditorClassIdentifier: 
+  wallTile: {fileID: 11400000, guid: 7a99dd5d5b5a4494fb08597728f664c8, type: 2}
+  wallTileUp: {fileID: 11400000, guid: dd7bcbc3607cbd5458e45b6c96488a8a, type: 2}
+  wallTileDown: {fileID: 11400000, guid: 1d9bf87edd8e2414d95d85609e3df546, type: 2}
+  wallTileUpDown: {fileID: 11400000, guid: 7d4f05b9675ee5047976304f7788af4a, type: 2}
+  wallTileLeft: {fileID: 11400000, guid: 51699086f4a8ec64f9403c1a77819ab5, type: 2}
+  wallTileLeftUp: {fileID: 11400000, guid: a2ce6ddd852432f47bdf7b176e435f4e, type: 2}
+  wallTileLeftDown: {fileID: 11400000, guid: ed66ad4bda2aa91488d4879f6defaf7a, type: 2}
+  wallTileLeftUpDown: {fileID: 11400000, guid: 312f26d8f2cea874cbcbbb65ae92b443, type: 2}
+  wallTileRight: {fileID: 11400000, guid: c988423b4363e3d40b69c0ba14133bcb, type: 2}
+  wallTileRightUp: {fileID: 11400000, guid: dd76e637e93127e459973213109f414b, type: 2}
+  wallTileRightDown: {fileID: 11400000, guid: 2d733c2b980ec204daf72b02d72d594b, type: 2}
+  wallTileRightUpDown: {fileID: 11400000, guid: 56ddf3a46defc7e478924c75e75fd322, type: 2}
+  wallTileRightLeft: {fileID: 11400000, guid: 01c658bc626c37a4484a21907da9c990, type: 2}
+  wallTileRightLeftUp: {fileID: 11400000, guid: 1ab973f5f6b845b4b85d5bf76e6edb8e, type: 2}
+  wallTileRightLeftDown: {fileID: 11400000, guid: b75379b52a711c14496c1fe0ca59c697, type: 2}
+  wallTileRightLeftUpDown: {fileID: 11400000, guid: 00ec2b6b1a2f43546ac147f8afb38aea, type: 2}

@@ -63,7 +63,7 @@
             int endY = startY + height;
             for (int x = startX; x < endX; x++)
             {
-                for (int y = startY; y < endY; Y++)
+                for (int y = startY; y < endY; y++)
                 {
                     levelData.levelElements[x, y].isWall = true;
                 }

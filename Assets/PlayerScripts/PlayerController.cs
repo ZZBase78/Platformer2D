@@ -5,22 +5,30 @@ namespace Platformer2D.Assets.PlayerScripts
     internal sealed class PlayerController
     {
         private Player player;
-        private AnimationController playerAnimation;
+        private AnimationController animationController;
+        private PlayerStateAnimation playerStateAnimation;
         private PlayerMoveController playerMoveController;
+        private PlayerScaleController playerScaleController;
 
         public PlayerController(Player player)
         {
             this.player = player;
-            playerAnimation = new AnimationController(player.view.spriteRenderer);
-            playerAnimation.Play(new AnimationFactory().Create(ResourcesAnimationPathes.PLAYER_IDLE));
+            animationController = new AnimationController(player.view.spriteRenderer);
+            playerStateAnimation = new PlayerStateAnimation();
 
             playerMoveController = new PlayerMoveController(player);
+
+            playerScaleController = new PlayerScaleController(player);
         }
 
         public void Update(float deltaTime)
         {
             playerMoveController.Move(deltaTime);
-            playerAnimation.Update(deltaTime);
+
+            playerScaleController.Update();
+
+            animationController.Play(playerStateAnimation.GetAnimationData(player.playerState));
+            animationController.Update(deltaTime);
         }
     }
 }

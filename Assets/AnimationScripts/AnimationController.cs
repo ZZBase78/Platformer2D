@@ -16,7 +16,12 @@ namespace Platformer2D.Assets.AnimationScripts
 
         public void Play(AnimationData animationData)
         {
-            this.animationData = animationData;
+            if (this.animationData != animationData)
+            {
+                this.animationData = animationData;
+                this.animationData.counter = 0;
+            }
+            
             isPlaying = true;
         }
         public void Stop()

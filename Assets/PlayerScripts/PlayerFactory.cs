@@ -22,6 +22,7 @@ namespace Platformer2D.Assets.PlayerScripts
             player.jumpForce = playerModel.jumpForce;
 
             player.view = playerViewFactory.GetPlayerView();
+            player.playerState = PlayerState.Stand;
             return player;
         }
 

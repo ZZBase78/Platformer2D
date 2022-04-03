@@ -6,5 +6,6 @@ namespace Platformer2D.Assets.PlayerScripts
     {
         public Transform transformView;
         public SpriteRenderer spriteRenderer;
+        public Rigidbody2D rigidbodyView;
     }
 }

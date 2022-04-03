@@ -11,7 +11,7 @@ namespace Platformer2D.Assets.PlayerScripts
             this.player = player;
         }
 
-        public void Move(float deltaTime)
+        public void Update(float deltaTime)
         {
             Vector3 direction = Vector3.zero;
             PlayerState newPlayerState = PlayerState.Stand;

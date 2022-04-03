@@ -20,6 +20,7 @@ namespace Platformer2D.Assets.PlayerScripts
             }
             playerView.transformView = gameObject.transform;
             playerView.spriteRenderer = gameObject.GetComponentInChildren<SpriteRenderer>();
+            playerView.rigidbodyView = gameObject.GetComponentInChildren<Rigidbody2D>();
 
             return playerView;
         }

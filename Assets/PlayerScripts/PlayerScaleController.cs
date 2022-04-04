@@ -6,12 +6,12 @@ namespace Platformer2D.Assets.PlayerScripts
     {
         private Player player;
         private Vector3 normalScale;
-        private Vector3 invertionXScale;
+        private Vector3 inversionXScale;
         public PlayerScaleController(Player player)
         {
             this.player = player;
             normalScale = Vector3.one;
-            invertionXScale = new Vector3(-1, 1, 1);
+            inversionXScale = new Vector3(-1, 1, 1);
         }
 
         public void Update()
@@ -22,7 +22,7 @@ namespace Platformer2D.Assets.PlayerScripts
             }
             else if (player.playerState == PlayerState.MoveLeft)
             {
-                player.view.transform.localScale = invertionXScale;
+                player.view.transform.localScale = inversionXScale;
             }
         }
     }

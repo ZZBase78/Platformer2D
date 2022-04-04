@@ -1,4 +1,5 @@
-﻿using Platformer2D.Assets.Settings;
+﻿using Platformer2D.Assets.CollidersScripts;
+using Platformer2D.Assets.Settings;
 using UnityEngine;
 
 namespace Platformer2D.Assets.PlayerScripts
@@ -9,16 +10,18 @@ namespace Platformer2D.Assets.PlayerScripts
         private const int maxCollidersCount = 8;
 
         private Player player;
-        private Collider2D[] results;
         private Vector2 downOffSet;
         private Vector2 size;
+
+        private CollidersController collidersController;
 
         public PlayerOnGroundController(Player player)
         {
             this.player = player;
-            results = new Collider2D[maxCollidersCount];
             downOffSet = new Vector2(0, pointOffSet);
             size = new Vector2(1f, 0.05f);
+
+            collidersController = new CollidersController(maxCollidersCount);
         }
 
         public void Update()
@@ -26,15 +29,11 @@ namespace Platformer2D.Assets.PlayerScripts
             player.isOnGround = false;
 
             Vector2 point = (Vector2)player.view.transform.position + downOffSet;
-            int resultCount = Physics2D.OverlapBoxNonAlloc(point, size, 0, results);
-            if (resultCount == 0) return;
 
-            for(int i = 0; i < resultCount; i++)
+            Collider2D wallCollider = collidersController.CheckTag(GameTags.WALL, point, size, 0);
+            if (wallCollider)
             {
-                if (results[i].CompareTag(GameTags.WALL))
-                {
-                    player.isOnGround = true;
-                }
+                player.isOnGround = true;
             }
         }
     }

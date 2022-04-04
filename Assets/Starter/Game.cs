@@ -31,5 +31,10 @@ namespace Platformer2D.Assets.Starter
             playerController.Update(deltaTime);
             cameraController.Update(deltaTime);
         }
+
+        public void FixedUpdate(float fixedDeltaTime)
+        {
+            playerController.FixedUpdate(fixedDeltaTime);
+        }
     }
 }

@@ -15,5 +15,10 @@ namespace Platformer2D.Assets.Starter
         {
             game.Update(Time.deltaTime);
         }
+
+        private void FixedUpdate()
+        {
+            game.FixedUpdate(Time.fixedDeltaTime);
+        }
     }
 }

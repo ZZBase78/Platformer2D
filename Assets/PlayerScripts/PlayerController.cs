@@ -13,6 +13,7 @@ namespace Platformer2D.Assets.PlayerScripts
         private PlayerScaleController playerScaleController;
         private PlayerJumpController playerJumpController;
         private PlayerOnGroundController playerOnGroundController;
+        private PlayerFlyStateController playerFlyStateController;
 
         public PlayerController(Player player)
         {
@@ -25,17 +26,16 @@ namespace Platformer2D.Assets.PlayerScripts
             playerScaleController = new PlayerScaleController(player);
             playerJumpController = new PlayerJumpController(player);
             playerOnGroundController = new PlayerOnGroundController(player);
+            playerFlyStateController = new PlayerFlyStateController(player);
         }
 
         public void Update(float deltaTime)
         {
             playerOnGroundController.Update();
-
             playerMoveController.Update(deltaTime);
             playerJumpController.Update();
-
             playerScaleController.Update();
-
+            playerFlyStateController.Update();
             animationController.Play(playerStateAnimation.GetAnimationData(player.playerState));
             animationController.Update(deltaTime);
         }

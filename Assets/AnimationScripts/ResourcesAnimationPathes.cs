@@ -4,5 +4,7 @@
     {
         public const string PLAYER_IDLE = "Animations/PlayerIdle";
         public const string PLAYER_MOVE = "Animations/PlayerMove";
+        public const string PLAYER_JUMP_UP = "Animations/PlayerJumpUp";
+        public const string PLAYER_FALL_DOWN = "Animations/PlayerFallDown";
     }
 }

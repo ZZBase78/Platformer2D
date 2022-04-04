@@ -6,7 +6,7 @@ namespace Platformer2D.Assets.PlayerScripts
     internal sealed class PlayerOnGroundController
     {
         private const float pointOffSet = -0.52f;
-        private const int maxCollidersCount = 2;
+        private const int maxCollidersCount = 8;
 
         private Player player;
         private Collider2D[] results;

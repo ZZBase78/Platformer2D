@@ -1,11 +1,14 @@
 ﻿using Platformer2D.Assets.AnimationScripts;
 using Platformer2D.Assets.Settings;
+using System;
 using UnityEngine;
 
 namespace Platformer2D.Assets.PlayerScripts
 {
     internal sealed class PlayerController
     {
+        public event Action actionPlayerDie;
+
         private Player player;
         private AnimationController animationController;
         private PlayerStateAnimation playerStateAnimation;
@@ -29,6 +32,11 @@ namespace Platformer2D.Assets.PlayerScripts
             playerJumpController = new PlayerJumpController(player);
             playerOnGroundController = new PlayerOnGroundController(player);
             playerFlyStateController = new PlayerFlyStateController(player);
+        }
+
+        private void PlayerDie()
+        {
+            actionPlayerDie?.Invoke();
         }
 
         public void Update(float deltaTime)

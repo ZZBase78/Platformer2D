@@ -24,6 +24,7 @@ namespace Platformer2D.Assets.Starter
 
             cameraController = new CameraController();
             cameraController.SetTarget(player.view.transform);
+            playerController.actionPlayerDie += cameraController.UnSetTarget;
         }
 
         public void Update(float deltaTime)

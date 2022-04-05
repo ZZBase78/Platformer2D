@@ -16,6 +16,12 @@ namespace Platformer2D.Assets.CameraScripts
             InitCameraData();
         }
 
+        public void UnSetTarget()
+        {
+            cameraData.target = null;
+            cameraData.isTargetSet = false;
+        }
+
         private void InitCameraData()
         {
             cameraData = new CameraData();

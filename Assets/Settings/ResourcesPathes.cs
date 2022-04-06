@@ -12,5 +12,8 @@
         public const string WALL_TILEMAP = "Level/WallTilemap";
 
         public const string CAMERA_MODEL = "Camera/CameraModel";
+        
+        public const string CANNON_MODEL = "Cannon/CannonModel";
+        public const string CANNON_PREFAB = "Cannon/Cannon";
     }
 }

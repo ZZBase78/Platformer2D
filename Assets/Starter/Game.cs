@@ -1,6 +1,8 @@
 using Platformer2D.Assets.CameraScripts;
+using Platformer2D.Assets.Enemy.Cannon;
 using Platformer2D.Assets.LevelScripts;
 using Platformer2D.Assets.PlayerScripts;
+using System.Collections.Generic;
 
 namespace Platformer2D.Assets.Starter
 {
@@ -8,6 +10,7 @@ namespace Platformer2D.Assets.Starter
     {
         private PlayerController playerController;
         private CameraController cameraController;
+        private CannonManager cannonManager;
 
         public void Start()
         {
@@ -15,8 +18,13 @@ namespace Platformer2D.Assets.Starter
             LevelData levelData = new LevelGenerator().Generate();
             new LevelDisplay().Display(levelData);
 
+            List<CannonData> cannons = new CannonLevelPlacer(levelData).PlaceCannons();
+
+
             PlayerFactory playerFactory = new PlayerFactory();
             Player player = playerFactory.GetPlayer();
+
+            cannonManager = new CannonManager(cannons, player);
 
             new PlayerStartPosition().MoveToStart(player.view.transform, levelData);
 
@@ -31,6 +39,7 @@ namespace Platformer2D.Assets.Starter
         {
             playerController.Update(deltaTime);
             cameraController.Update(deltaTime);
+            cannonManager.Update(deltaTime);
         }
 
         public void FixedUpdate(float fixedDeltaTime)

@@ -11,5 +11,7 @@ namespace Platformer2D.Assets.LevelScripts
         public int cellHeight;
         public int wallWidth;
         public int wallHeight;
+        public int cannonCount;
+        public float cannonMinDistantion;
     }
 }

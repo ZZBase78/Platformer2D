@@ -63,6 +63,8 @@ namespace Platformer2D.Assets.Enemy.Cannon
 
             List<CannonData> cannons = DisplayCannons(cannonPositions);
 
+            new CannonLevelMarker().MarkCannonsOnLevel(levelData, cannons);
+
             return cannons;
         }
 
@@ -82,6 +84,8 @@ namespace Platformer2D.Assets.Enemy.Cannon
             CannonData cannonData = cannonFactory.GetCannon();
             cannonData.view.transform.position = cannonPosition.position + placeOffSet;
             cannonData.view.transform.up = cannonPosition.direction;
+            cannonData.levelX = (int)cannonPosition.position.x;
+            cannonData.levelY = (int)cannonPosition.position.y;
 
             return cannonData;
         }

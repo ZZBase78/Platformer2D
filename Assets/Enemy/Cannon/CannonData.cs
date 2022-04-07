@@ -14,5 +14,7 @@
         public float maxAngle;
         public float maxDistanceCheckPlayer;
         public bool isPlayerVisible;
+        public int levelX;
+        public int levelY;
     }
 }

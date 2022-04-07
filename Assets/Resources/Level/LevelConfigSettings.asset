@@ -20,3 +20,4 @@ MonoBehaviour:
   wallHeight: 1
   cannonCount: 20
   cannonMinDistantion: 5
+  coinCount: 100

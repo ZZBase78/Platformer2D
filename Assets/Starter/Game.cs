@@ -1,4 +1,5 @@
 using Platformer2D.Assets.CameraScripts;
+using Platformer2D.Assets.Coin;
 using Platformer2D.Assets.Enemy.Cannon;
 using Platformer2D.Assets.LevelScripts;
 using Platformer2D.Assets.PlayerScripts;
@@ -11,6 +12,7 @@ namespace Platformer2D.Assets.Starter
         private PlayerController playerController;
         private CameraController cameraController;
         private CannonManager cannonManager;
+        private CoinManager coinManager;
 
         public void Start()
         {
@@ -26,6 +28,8 @@ namespace Platformer2D.Assets.Starter
 
             cannonManager = new CannonManager(cannons, player);
 
+            coinManager = new CoinManager(levelData);
+
             new PlayerStartPosition().MoveToStart(player.view.transform, levelData);
 
             playerController = new PlayerController(player);
@@ -40,6 +44,7 @@ namespace Platformer2D.Assets.Starter
             playerController.Update(deltaTime);
             cameraController.Update(deltaTime);
             cannonManager.Update(deltaTime);
+            coinManager.Update(deltaTime);
         }
 
         public void FixedUpdate(float fixedDeltaTime)

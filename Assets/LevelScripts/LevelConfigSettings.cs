@@ -13,5 +13,6 @@ namespace Platformer2D.Assets.LevelScripts
         public int wallHeight;
         public int cannonCount;
         public float cannonMinDistantion;
+        public int coinCount;
     }
 }

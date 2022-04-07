@@ -7,5 +7,6 @@
         public const string TILEMAP_NOT_FOUND = "Error #2: TileMap component not found";
         public const string CANNON_VIEW_NOT_FOUND = "Error #3: CannonView component not found on Cannon prefab";
         public const string CANNON_BULLET_VIEW_NOT_FOUND = "Error #4: CannonBulletView component not found on CannonBullet prefab";
+        public const string COINVIEW_VIEW_NOT_FOUND = "Error #5: CoinView component not found on Coin prefab";
     }
 }

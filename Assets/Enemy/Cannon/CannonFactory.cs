@@ -32,6 +32,8 @@ namespace Platformer2D.Assets.Enemy.Cannon
             cannonData.minAngle = cannonModel.minAngle;
             cannonData.maxAngle = cannonModel.maxAngle;
             cannonData.maxDistanceCheckPlayer = cannonModel.maxDistanceCheckPlayer;
+            cannonData.levelX = 0;
+            cannonData.levelY = 0;
 
             return cannonData;
     }

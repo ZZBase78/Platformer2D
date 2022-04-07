@@ -15,5 +15,8 @@
         
         public const string CANNON_MODEL = "Cannon/CannonModel";
         public const string CANNON_PREFAB = "Cannon/Cannon";
+
+        public const string CANNON_BULLET_PREFAB = "CannonBullet/CannonBullet";
+        public const string CANNON_BULLET_MODEL = "CannonBullet/CannonBulletModel";
     }
 }

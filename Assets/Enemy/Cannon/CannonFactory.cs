@@ -20,7 +20,7 @@ namespace Platformer2D.Assets.Enemy.Cannon
             CannonData cannonData = new CannonData();
             cannonData.view = go.GetComponent<CannonView>();
 
-            if (cannonData.view == null) throw new Exception(ErrorMessages.CANNONVIEW_NOT_FOUND);
+            if (cannonData.view == null) throw new Exception(ErrorMessages.CANNON_VIEW_NOT_FOUND);
 
             cannonData.fireInterval = cannonModel.fireInterval;
             cannonData.timeToFire = 0f;

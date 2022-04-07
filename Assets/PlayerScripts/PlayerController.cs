@@ -12,7 +12,6 @@ namespace Platformer2D.Assets.PlayerScripts
         private Player player;
         private AnimationController animationController;
         private PlayerStateAnimation playerStateAnimation;
-        //private PlayerMoveController playerMoveController;
         private PlayerScaleController playerScaleController;
         private PlayerJumpController playerJumpController;
         private PlayerOnGroundController playerOnGroundController;
@@ -25,7 +24,6 @@ namespace Platformer2D.Assets.PlayerScripts
             animationController = new AnimationController(player.view.spriteRenderer);
             playerStateAnimation = new PlayerStateAnimation();
 
-            //playerMoveController = new PlayerMoveController(player);
             playerPhysicsMoveController = new PlayerPhysicsMoveController(player);
 
             playerScaleController = new PlayerScaleController(player);
@@ -43,7 +41,6 @@ namespace Platformer2D.Assets.PlayerScripts
         {
             playerOnGroundController.Update();
 
-            //playerMoveController.Update(deltaTime);
             playerPhysicsMoveController.Update(deltaTime);
 
             playerJumpController.Update();

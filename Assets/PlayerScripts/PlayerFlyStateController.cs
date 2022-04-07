@@ -4,7 +4,7 @@ namespace Platformer2D.Assets.PlayerScripts
 {
     internal sealed class PlayerFlyStateController
     {
-        private const float minABSVelocity = 0.01f;
+        private const float minABSVelocity = 2f;
 
         private Player player;
 
@@ -17,7 +17,12 @@ namespace Platformer2D.Assets.PlayerScripts
         {
             float yVelocity = player.view.rigidbodyView.velocity.y;
 
-            if (Mathf.Abs(yVelocity) < minABSVelocity) return;
+            if (Mathf.Abs(yVelocity) < minABSVelocity)
+            {
+                if (player.isOnGround) return;
+                player.playerState = PlayerState.Stand;
+                return;
+            }
 
             if (yVelocity >= 0)
             {

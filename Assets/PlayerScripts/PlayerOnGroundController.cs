@@ -6,34 +6,30 @@ namespace Platformer2D.Assets.PlayerScripts
 {
     internal sealed class PlayerOnGroundController
     {
-        private const float pointOffSet = -0.52f;
-        private const int maxCollidersCount = 8;
-
+        private const int maxContacts = 8;
+        private const float minNormalValue = 0.8f;
         private Player player;
-        private Vector2 downOffSet;
-        private Vector2 size;
-
-        private CollidersController collidersController;
+        private ContactPoint2D[] contacts;
 
         public PlayerOnGroundController(Player player)
         {
             this.player = player;
-            downOffSet = new Vector2(0, pointOffSet);
-            size = new Vector2(1f, 0.05f);
-
-            collidersController = new CollidersController(maxCollidersCount);
+            contacts = new ContactPoint2D[maxContacts];
         }
 
         public void Update()
         {
             player.isOnGround = false;
 
-            Vector2 point = (Vector2)player.view.transform.position + downOffSet;
+            int contactsCount = player.view.rigidbodyView.GetContacts(contacts);
 
-            Collider2D wallCollider = collidersController.CheckTag(GameTags.WALL, point, size, 0);
-            if (wallCollider)
+            for (int i = 0; i < contactsCount; i++)
             {
-                player.isOnGround = true;
+                if (contacts[i].normal.y > minNormalValue)
+                {
+                    player.isOnGround = true;
+                    return;
+                }
             }
         }
     }

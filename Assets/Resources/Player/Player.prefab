@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5326797477815652030}
   - component: {fileID: 5203957629313678846}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -93,7 +93,7 @@ GameObject:
   - component: {fileID: 7915612872534787531}
   - component: {fileID: 6711029431204811834}
   - component: {fileID: 4525884071169917213}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}

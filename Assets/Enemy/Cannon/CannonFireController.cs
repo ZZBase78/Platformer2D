@@ -4,11 +4,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using UnityEngine;
 
 namespace Platformer2D.Assets.Enemy.Cannon
 {
     internal sealed class CannonFireController
     {
+        private const float MIN_ANGLE_TO_FIRE = 1f;
+
         private CannonData cannonData;
         private CannonBulletManager cannonBulletManager;
 
@@ -26,8 +29,15 @@ namespace Platformer2D.Assets.Enemy.Cannon
 
         public void Update(float deltaTime)
         {
-            cannonData.timeToFire -= deltaTime;
-            if (cannonData.timeToFire <= 0) Fire();
+            if (cannonData.timeToFire > 0) cannonData.timeToFire -= deltaTime;
+                
+            if (cannonData.timeToFire > 0) return;
+
+            if (!cannonData.isPlayerVisible) return;
+
+            if (Mathf.Abs(cannonData.targetAngle - cannonData.currentAngle) > MIN_ANGLE_TO_FIRE) return;
+
+            Fire();
         }
     }
 }

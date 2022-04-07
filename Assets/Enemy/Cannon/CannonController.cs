@@ -9,6 +9,7 @@ namespace Platformer2D.Assets.Enemy.Cannon
         private CannonRotateController cannonRotateController;
         private CannonBulletManager cannonBulletManager;
         private CannonFireController cannonFireController;
+        private CannonCheckPlayer cannonCheckPlayer;
 
         public CannonController(CannonData cannonData, Player player, CannonBulletManager cannonBulletManager)
         {
@@ -16,9 +17,11 @@ namespace Platformer2D.Assets.Enemy.Cannon
             cannonRotateController = new CannonRotateController(cannonData);
             cannonFireController = new CannonFireController(cannonData, cannonBulletManager);
             this.cannonBulletManager = cannonBulletManager;
+            cannonCheckPlayer = new CannonCheckPlayer(cannonData, player);
         }
         public void Update(float deltaTime)
         {
+            cannonCheckPlayer.Update();
             cannonTargetAngleCalculator.Calculate();
             cannonRotateController.Update(deltaTime);
             cannonFireController.Update(deltaTime);

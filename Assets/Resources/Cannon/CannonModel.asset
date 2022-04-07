@@ -17,3 +17,4 @@ MonoBehaviour:
   rotateSpeed: 90
   minAngle: -90
   maxAngle: 90
+  maxDistanceCheckPlayer: 30

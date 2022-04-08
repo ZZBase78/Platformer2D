@@ -40,6 +40,7 @@ namespace Platformer2D.Assets.Coin
             {
                 CoinData coinData = coinFactory.Create();
                 coinData.view.transformView.position = position + offSetPosition;
+                coinData.state = CoinState.Collectable;
                 list.Add(coinData);
             }
 

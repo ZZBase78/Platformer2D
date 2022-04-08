@@ -20,6 +20,7 @@ namespace Platformer2D.Assets.Coin
             CoinView view = gameObject.GetComponent<CoinView>();
             if (view == null) throw new Exception(ErrorMessages.COINVIEW_VIEW_NOT_FOUND);
             coinData.view = view;
+            coinData.state = CoinState.None;
 
             return coinData;
         }

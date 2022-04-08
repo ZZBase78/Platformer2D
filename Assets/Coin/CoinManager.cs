@@ -7,11 +7,15 @@ namespace Platformer2D.Assets.Coin
     {
         private CoinLevelPlacer coinLevelPlacer;
         private Dictionary<CoinData, CoinController> list;
+        private CoinFactory coinFactory;
+        private List<CoinData> destroyList;
 
         public CoinManager(LevelData levelData)
         {
+            destroyList = new List<CoinData>();
             list = new Dictionary<CoinData, CoinController>();
-            coinLevelPlacer = new CoinLevelPlacer(levelData, new CoinFactory());
+            coinFactory = new CoinFactory();
+            coinLevelPlacer = new CoinLevelPlacer(levelData, coinFactory);
 
             Generate();
         }
@@ -31,6 +35,21 @@ namespace Platformer2D.Assets.Coin
             foreach (var element in list)
             {
                 element.Value.Update(deltaTime);
+            }
+            CheckDestroy();
+        }
+
+        private void CheckDestroy()
+        {
+            destroyList.Clear();
+            foreach (var element in list)
+            {
+                if (element.Key.state == CoinState.Destroy) destroyList.Add(element.Key);
+            }
+            foreach(CoinData coinData in destroyList)
+            {
+                coinFactory.Destroy(coinData);
+                list.Remove(coinData);
             }
         }
     }

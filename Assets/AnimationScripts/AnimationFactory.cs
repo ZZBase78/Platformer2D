@@ -10,16 +10,20 @@ namespace Platformer2D.Assets.AnimationScripts
     {
         public AnimationData Create(string resourcePathString)
         {
-            AnimationData animationData = new AnimationData();
             AnimationTrack animationTrack = Resources.Load<AnimationTrack>(resourcePathString);
-            if (animationTrack != null)
-            {
-                animationData.track = animationTrack.list;
-            }
-            else
+
+            if (animationTrack == null)
             {
                 throw new Exception(string.Join(ErrorMessages.ERROR_SEPARATOR, ErrorMessages.ANIMATION_NOT_FOUND, resourcePathString));
             }
+
+            return Create(animationTrack);
+        }
+
+        public AnimationData Create(AnimationTrack animationTrack)
+        {
+            AnimationData animationData = new AnimationData();
+            animationData.track = animationTrack.list;
             animationData.speed = animationTrack.speed;
             animationData.counter = 0;
             animationData.loop = animationTrack.loop;

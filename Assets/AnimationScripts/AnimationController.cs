@@ -6,7 +6,7 @@ namespace Platformer2D.Assets.AnimationScripts
     {
         private SpriteRenderer spriteRenderer;
         private AnimationData animationData;
-        private bool isPlaying;
+        public bool isPlaying;
 
         public AnimationController(SpriteRenderer spriteRenderer)
         {

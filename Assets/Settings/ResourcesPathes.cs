@@ -20,5 +20,6 @@
         public const string CANNON_BULLET_MODEL = "CannonBullet/CannonBulletModel";
 
         public const string COIN_PREFAB = "Coin/Coin";
+        public const string EXPLOSION_PREFAB = "Explosion/Explosion";
     }
 }

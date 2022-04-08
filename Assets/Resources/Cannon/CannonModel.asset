@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: CannonModel
   m_EditorClassIdentifier: 
   fireInterval: 1
-  fireForce: 1
+  fireForce: 2
   rotateSpeed: 90
-  minAngle: -90
-  maxAngle: 90
+  minAngle: -100
+  maxAngle: 100
   maxDistanceCheckPlayer: 30

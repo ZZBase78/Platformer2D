@@ -14,6 +14,13 @@ namespace Platformer2D.Assets.LevelScripts
         private int wallWidth;
         private int wallHeight;
 
+        int exitCellX;
+        int exitCellY;
+        int levelExitMinX;
+        int levelExitMaxX;
+        int levelExitMinY;
+        int levelExitMaxY;
+
         public Vector2 worldOffSet = new Vector2(0.5f, 0.5f);
 
         public LevelCoordinator(LevelData levelData)
@@ -27,6 +34,13 @@ namespace Platformer2D.Assets.LevelScripts
             cellHeight = levelData.levelConfig.levelConfigSettings.cellHeight;
             wallWidth = levelData.levelConfig.levelConfigSettings.wallWidth;
             wallHeight = levelData.levelConfig.levelConfigSettings.wallHeight;
+
+            exitCellX = levelData.levelConfig.width - 1;
+            exitCellY = levelData.levelConfig.height - 1;
+            levelExitMinX = GetLevelLeftXFromCellX(exitCellX);
+            levelExitMaxX = GetLevelRightXFromCellX(exitCellX);
+            levelExitMinY = GetLevelDownYFromCellY(exitCellY);
+            levelExitMaxY = GetLevelUpYFromCellY(exitCellY);
         }
 
         public int GetLevelLeftXFromCellX(int cellX)
@@ -59,6 +73,11 @@ namespace Platformer2D.Assets.LevelScripts
         private bool CheckBounds(int x, int y)
         {
             return !(x < 0 || x >= width || y < 0 || y >= height);
+        }
+
+        public bool IsExitCell(int levelX, int levelY)
+        {
+            return (levelX >= levelExitMinX) && (levelX <= levelExitMaxX) && (levelY >= levelExitMinY) && (levelY <= levelExitMaxY);
         }
     }
 }

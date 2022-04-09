@@ -11,14 +11,18 @@ namespace Platformer2D.Assets.Starter
 {
     internal sealed class Game
     {
+        private GameData gameData;
+
         private PlayerController playerController;
         private CameraController cameraController;
         private CannonManager cannonManager;
         private CoinManager coinManager;
         private PortalManager portalManager;
-
+        private EndLevelController endLevelController;
+        
         public void Start()
         {
+            gameData = new GameData();
 
             LevelData levelData = new LevelGenerator().Generate();
             new LevelDisplay().Display(levelData);
@@ -43,20 +47,31 @@ namespace Platformer2D.Assets.Starter
 
             portalManager = new PortalManager(levelData);
             portalManager.CreateExitPortal();
+
+            endLevelController = new EndLevelController(gameData);
+            playerController.actionLevelExit += endLevelController.LevelExitPortalReached;
+
+            gameData.gameState = GameState.Playing;
         }
 
         public void Update(float deltaTime)
         {
-            playerController.Update(deltaTime);
-            cameraController.Update(deltaTime);
-            cannonManager.Update(deltaTime);
-            coinManager.Update(deltaTime);
-            portalManager.Update(deltaTime);
+            if (gameData.gameState == GameState.Playing)
+            {
+                playerController.Update(deltaTime);
+                cameraController.Update(deltaTime);
+                cannonManager.Update(deltaTime);
+                coinManager.Update(deltaTime);
+                portalManager.Update(deltaTime);
+            }
         }
 
         public void FixedUpdate(float fixedDeltaTime)
         {
-            playerController.FixedUpdate(fixedDeltaTime);
+            if (gameData.gameState == GameState.Playing)
+            {
+                playerController.FixedUpdate(fixedDeltaTime);
+            }
         }
     }
 }

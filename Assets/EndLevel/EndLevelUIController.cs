@@ -6,6 +6,8 @@ namespace Platformer2D.Assets.EndLevel
 {
     internal sealed class EndLevelUIController
     {
+        public event Action actionButtonPressed;
+
         private const string BUTTON_TEXT_RESTART = "Restart level";
         private const string BUTTON_TEXT_NEXT_LEVEL = "Next level";
 
@@ -37,7 +39,7 @@ namespace Platformer2D.Assets.EndLevel
 
         public void ButtonPressed()
         {
-            Destroy();
+            actionButtonPressed?.Invoke();
         }
     }
 }

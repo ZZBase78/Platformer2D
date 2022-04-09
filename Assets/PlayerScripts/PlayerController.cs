@@ -9,6 +9,7 @@ namespace Platformer2D.Assets.PlayerScripts
     internal sealed class PlayerController
     {
         public event Action actionPlayerDie;
+        public event Action actionLevelExit;
 
         private Player player;
         private AnimationController animationController;
@@ -47,7 +48,7 @@ namespace Platformer2D.Assets.PlayerScripts
                 IExit exitable = collision.GetComponentInParent<IExit>();
                 if (exitable != null)
                 {
-                    if (exitable.IsExit()) Debug.Log("Exit Portal");
+                    if (exitable.IsExit()) actionLevelExit?.Invoke();
                 }
             }
         }

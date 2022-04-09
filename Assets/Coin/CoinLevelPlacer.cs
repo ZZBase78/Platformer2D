@@ -69,11 +69,14 @@ namespace Platformer2D.Assets.Coin
         {
             List<Vector2Int> list = new List<Vector2Int>();
 
+            int maxX = levelCoordinator.GetLevelLeftXFromCellX(levelData.levelConfig.width - 1);
+            int maxY = levelCoordinator.GetLevelDownYFromCellY(levelData.levelConfig.height - 1);
+
             for (int x = 0; x < levelData.width; x++)
             {
                 for (int y = 0; y < levelData.height; y++)
                 {
-                    if (PositionIsPossible(x, y)) list.Add(new Vector2Int(x, y));
+                    if (!levelCoordinator.IsExitCell(x, y) && PositionIsPossible(x, y)) list.Add(new Vector2Int(x, y));
                 }
             }
 

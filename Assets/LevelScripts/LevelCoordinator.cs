@@ -1,4 +1,6 @@
-﻿namespace Platformer2D.Assets.LevelScripts
+﻿using UnityEngine;
+
+namespace Platformer2D.Assets.LevelScripts
 {
     internal sealed class LevelCoordinator
     {
@@ -11,6 +13,8 @@
         private int cellHeight;
         private int wallWidth;
         private int wallHeight;
+
+        public Vector2 worldOffSet = new Vector2(0.5f, 0.5f);
 
         public LevelCoordinator(LevelData levelData)
         {

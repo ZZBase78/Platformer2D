@@ -40,11 +40,15 @@ namespace Platformer2D.Assets.PlayerScripts
             if (collision.CompareTag(GameTags.COIN))
             {
                 ICollectable collectable = collision.GetComponentInParent<ICollectable>();
-                collectable.Collect();
+                if (collectable != null) collectable.Collect();
             }
             else if (collision.CompareTag(GameTags.PORTAL))
             {
-                Debug.Log("Portal");
+                IExit exitable = collision.GetComponentInParent<IExit>();
+                if (exitable != null)
+                {
+                    if (exitable.IsExit()) Debug.Log("Exit Portal");
+                }
             }
         }
 

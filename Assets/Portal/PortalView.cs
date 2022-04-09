@@ -1,26 +1,17 @@
-﻿using Platformer2D.Assets.AnimationScripts;
+﻿using Platformer2D.Assets.Interfaces;
 using UnityEngine;
 
 namespace Platformer2D.Assets.Portal
 {
-    internal sealed class PortalView : MonoBehaviour
+    internal sealed class PortalView : MonoBehaviour, IExit
     {
         public Transform transformView;
         public SpriteRenderer spriteRenderer;
-        public AnimationTrack animationTrack;
-        private AnimationController animationController;
+        public PortalController portalController;
 
-        private void Awake()
+        public bool IsExit()
         {
-            animationController = new AnimationController(spriteRenderer);
-            animationController.Play(new AnimationFactory().Create(animationTrack));
-        }
-
-        private void Update()
-        {
-            animationController.Update(Time.deltaTime);
-
-            if (!animationController.isPlaying) GameObject.Destroy(gameObject);
+            return portalController.IsExit();
         }
     }
 }

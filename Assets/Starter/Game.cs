@@ -3,6 +3,7 @@ using Platformer2D.Assets.Coin;
 using Platformer2D.Assets.Enemy.Cannon;
 using Platformer2D.Assets.LevelScripts;
 using Platformer2D.Assets.PlayerScripts;
+using Platformer2D.Assets.Portal;
 using System.Collections.Generic;
 
 namespace Platformer2D.Assets.Starter
@@ -13,6 +14,7 @@ namespace Platformer2D.Assets.Starter
         private CameraController cameraController;
         private CannonManager cannonManager;
         private CoinManager coinManager;
+        private PortalManager portalManager;
 
         public void Start()
         {
@@ -37,6 +39,9 @@ namespace Platformer2D.Assets.Starter
             cameraController = new CameraController();
             cameraController.SetTarget(player.view.transform);
             playerController.actionPlayerDie += cameraController.UnSetTarget;
+
+            portalManager = new PortalManager(levelData);
+            portalManager.CreateExitPortal();
         }
 
         public void Update(float deltaTime)
@@ -45,6 +50,7 @@ namespace Platformer2D.Assets.Starter
             cameraController.Update(deltaTime);
             cannonManager.Update(deltaTime);
             coinManager.Update(deltaTime);
+            portalManager.Update(deltaTime);
         }
 
         public void FixedUpdate(float fixedDeltaTime)

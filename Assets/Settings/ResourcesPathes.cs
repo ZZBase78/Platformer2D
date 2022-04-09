@@ -21,7 +21,10 @@
 
         public const string COIN_PREFAB = "Coin/Coin";
         public const string EXPLOSION_PREFAB = "Explosion/Explosion";
+        
         public const string PORTAL_PREFAB = "Portal/Portal";
         public const string PORTAL_MODEL = "Portal/PortalModel";
+
+        public const string END_LEVEL_UI_PREFAB = "EndLevel/EndLevelCanvas";
     }
 }

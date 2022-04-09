@@ -1,5 +1,6 @@
 using Platformer2D.Assets.CameraScripts;
 using Platformer2D.Assets.Coin;
+using Platformer2D.Assets.EndLevel;
 using Platformer2D.Assets.Enemy.Cannon;
 using Platformer2D.Assets.LevelScripts;
 using Platformer2D.Assets.PlayerScripts;

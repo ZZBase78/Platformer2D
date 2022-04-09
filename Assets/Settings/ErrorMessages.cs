@@ -9,5 +9,6 @@
         public const string CANNON_BULLET_VIEW_NOT_FOUND = "Error #4: CannonBulletView component not found on CannonBullet prefab";
         public const string COINVIEW_VIEW_NOT_FOUND = "Error #5: CoinView component not found on Coin prefab";
         public const string PORTALVIEW_VIEW_NOT_FOUND = "Error #6: PortalView component not found on Portal prefab";
+        public const string END_LEVEL_UI_VIEW_NOT_FOUND = "Error #7: EndLelevUIView component not found on EndLevelUI prefab";
     }
 }

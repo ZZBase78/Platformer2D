@@ -1,7 +1,7 @@
 ﻿using Platformer2D.Assets.AnimationScripts;
 using UnityEngine;
 
-namespace Platformer2D.Assets.Explosion
+namespace Platformer2D.Assets.Effects.Explosion
 {
     internal sealed class ExplosionView : MonoBehaviour
     {

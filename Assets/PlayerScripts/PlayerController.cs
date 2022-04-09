@@ -42,6 +42,10 @@ namespace Platformer2D.Assets.PlayerScripts
                 ICollectable collectable = collision.GetComponentInParent<ICollectable>();
                 collectable.Collect();
             }
+            else if (collision.CompareTag(GameTags.PORTAL))
+            {
+                Debug.Log("Portal");
+            }
         }
 
         private void PlayerDie()

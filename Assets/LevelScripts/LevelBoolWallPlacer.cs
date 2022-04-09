@@ -3,10 +3,6 @@
     internal sealed class LevelBoolWallPlacer
     {
         private LevelData levelData;
-        private int stepX;
-        private int stepY;
-        private int offsetX;
-        private int offsetY;
         private int cellWidthCount;
         private int cellHeightCount;
         private int cellWidth;
@@ -14,21 +10,23 @@
         private int wallWidth;
         private int wallHeight;
 
+        private LevelCoordinator levelCoordinator;
+
         public LevelBoolWallPlacer(LevelData levelData)
         {
             this.levelData = levelData;
+
+            levelCoordinator = new LevelCoordinator(levelData);
 
             cellWidth = levelData.levelConfig.levelConfigSettings.cellWidth;
             cellHeight = levelData.levelConfig.levelConfigSettings.cellHeight;
             wallWidth = levelData.levelConfig.levelConfigSettings.wallWidth;
             wallHeight = levelData.levelConfig.levelConfigSettings.wallHeight;
 
-            stepX = cellWidth + wallWidth;
-            stepY = cellHeight + wallHeight;
-            offsetX = wallWidth;
-            offsetY = wallHeight;
             cellWidthCount = levelData.levelConfig.width;
             cellHeightCount = levelData.levelConfig.height;
+
+
         }
 
         public void PlaceBoolWall()
@@ -38,8 +36,8 @@
             {
                 for (int cellY = 0; cellY < cellHeightCount; cellY++)
                 {
-                    int levelX = GetLevelXFromCellX(cellX);
-                    int levelY = GetLevelYFromCellY(cellY);
+                    int levelX = levelCoordinator.GetLevelLeftXFromCellX(cellX);
+                    int levelY = levelCoordinator.GetLevelDownYFromCellY(cellY);
 
                     //Заполняем углы ячейки, они всегда заполнены стенами
                     SetRectWall(levelX - wallWidth, levelY - wallHeight, wallWidth, wallHeight);
@@ -68,16 +66,6 @@
                     levelData.levelElements[x, y].isWall = true;
                 }
             }
-        }
-
-        private int GetLevelXFromCellX(int cellX)
-        {
-            return offsetX + cellX * stepX;
-        }
-
-        private int GetLevelYFromCellY(int cellY)
-        {
-            return offsetY + cellY * stepY;
         }
     }
 }

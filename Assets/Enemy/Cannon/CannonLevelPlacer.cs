@@ -28,7 +28,7 @@ namespace Platformer2D.Assets.Enemy.Cannon
         private Vector2 placeOffSet = new Vector2(0.5f, 0.5f);
 
         private LevelData levelData;
-        private LevelWallChecker levelWallChecker;
+        private LevelCoordinator levelCoordinator;
         private CannonFactory cannonFactory;
         private int countToPlace;
         private float cannonMinDistantion;
@@ -36,7 +36,7 @@ namespace Platformer2D.Assets.Enemy.Cannon
         public CannonLevelPlacer(LevelData levelData)
         {
             this.levelData = levelData;
-            levelWallChecker = new LevelWallChecker(levelData);
+            levelCoordinator = new LevelCoordinator(levelData);
             countToPlace = levelData.levelConfig.levelConfigSettings.cannonCount;
             cannonMinDistantion = levelData.levelConfig.levelConfigSettings.cannonMinDistantion;
             cannonFactory = new CannonFactory();
@@ -122,15 +122,15 @@ namespace Platformer2D.Assets.Enemy.Cannon
         private bool CanPlace(int x, int y, bool[] template)
         {
             return
-                levelWallChecker.IsWall(x - 1, y + 1) == template[0] &&
-                levelWallChecker.IsWall(x, y + 1) == template[1] &&
-                levelWallChecker.IsWall(x + 1, y + 1) == template[2] &&
-                levelWallChecker.IsWall(x - 1, y) == template[3] &&
-                levelWallChecker.IsWall(x, y) == template[4] &&
-                levelWallChecker.IsWall(x + 1, y) == template[5] &&
-                levelWallChecker.IsWall(x - 1, y - 1) == template[6] &&
-                levelWallChecker.IsWall(x, y - 1) == template[7] &&
-                levelWallChecker.IsWall(x + 1, y - 1) == template[8];
+                levelCoordinator.IsWall(x - 1, y + 1) == template[0] &&
+                levelCoordinator.IsWall(x, y + 1) == template[1] &&
+                levelCoordinator.IsWall(x + 1, y + 1) == template[2] &&
+                levelCoordinator.IsWall(x - 1, y) == template[3] &&
+                levelCoordinator.IsWall(x, y) == template[4] &&
+                levelCoordinator.IsWall(x + 1, y) == template[5] &&
+                levelCoordinator.IsWall(x - 1, y - 1) == template[6] &&
+                levelCoordinator.IsWall(x, y - 1) == template[7] &&
+                levelCoordinator.IsWall(x + 1, y - 1) == template[8];
         }
     }
 }

@@ -10,14 +10,14 @@ namespace Platformer2D.Assets.LevelScripts
         private int width;
         private int height;
         private LevelWallsTilesSet levelWallsTilesSet;
-        private LevelWallChecker levelWallChecker;
+        private LevelCoordinator levelCoordinator;
 
         public LevelWallTileCalulator(LevelData levelData)
         {
             this.levelData = levelData;
             this.width = levelData.width;
             this.height = levelData.height;
-            levelWallChecker = new LevelWallChecker(levelData);
+            levelCoordinator = new LevelCoordinator(levelData);
         }
 
         public void Calulate()
@@ -30,10 +30,10 @@ namespace Platformer2D.Assets.LevelScripts
                 {
                     if (levelData.levelElements[x, y].isWall)
                     {
-                        bool up = levelWallChecker.IsWall(x, y + 1);
-                        bool down = levelWallChecker.IsWall(x, y - 1);
-                        bool left = levelWallChecker.IsWall(x - 1, y);
-                        bool right = levelWallChecker.IsWall(x + 1, y);
+                        bool up = levelCoordinator.IsWall(x, y + 1);
+                        bool down = levelCoordinator.IsWall(x, y - 1);
+                        bool left = levelCoordinator.IsWall(x - 1, y);
+                        bool right = levelCoordinator.IsWall(x + 1, y);
                         Tile tile = GetTileByHearWalls(up, down, left, right);
                         if (tile != null)
                         {

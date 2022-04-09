@@ -10,7 +10,7 @@ namespace Platformer2D.Assets.Coin
     {
         private Vector2 offSetPosition = new Vector2(0.5f, 0.5f);
 
-        private LevelWallChecker levelWallChecker;
+        private LevelCoordinator levelCoordinator;
         private LevelData levelData;
         private CoinFactory coinFactory;
 
@@ -18,7 +18,7 @@ namespace Platformer2D.Assets.Coin
         {
             this.coinFactory = coinFactory;
             this.levelData = levelData;
-            levelWallChecker = new LevelWallChecker(levelData);
+            levelCoordinator = new LevelCoordinator(levelData);
         }
 
         public List<CoinData> Place()
@@ -84,14 +84,14 @@ namespace Platformer2D.Assets.Coin
         {
             LevelElement levelElement = levelData.levelElements[x, y];
 
-            if (levelWallChecker.IsWall(x, y)) return false;
+            if (levelCoordinator.IsWall(x, y)) return false;
             if (levelElement.cannon != CannonLevelValue.None) return false;
 
-            if (levelWallChecker.IsWall(x, y - 1)) return true;
-            if (levelWallChecker.IsWall(x, y - 2)) return true;
-            if (levelWallChecker.IsWall(x, y - 3)) return true;
-            if (levelWallChecker.IsWall(x, y - 4)) return true;
-            if (levelWallChecker.IsWall(x, y - 5)) return true;
+            if (levelCoordinator.IsWall(x, y - 1)) return true;
+            if (levelCoordinator.IsWall(x, y - 2)) return true;
+            if (levelCoordinator.IsWall(x, y - 3)) return true;
+            if (levelCoordinator.IsWall(x, y - 4)) return true;
+            if (levelCoordinator.IsWall(x, y - 5)) return true;
 
             return false;
         }

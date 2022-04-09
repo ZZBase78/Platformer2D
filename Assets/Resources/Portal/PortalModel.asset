@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4b357961132ad34db1124e047a4b56a, type: 3}
   m_Name: PortalModel
   m_EditorClassIdentifier: 
-  animation: {fileID: 0}
+  animation: {fileID: 11400000, guid: bb56325b5f3ae7a4a89493a03accc265, type: 2}

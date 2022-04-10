@@ -1,5 +1,6 @@
 ﻿using Platformer2D.Assets.CannonBullet;
 using Platformer2D.Assets.PlayerScripts;
+using Platformer2D.Assets.Starter;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -11,7 +12,7 @@ namespace Platformer2D.Assets.Enemy.Cannon
         private Player player;
         private CannonBulletManager cannonBulletManager;
 
-        public CannonManager(List<CannonData> cannons, Player player)
+        public CannonManager(List<CannonData> cannons, GameData gameData, Player player)
         {
             cannonBulletManager = new CannonBulletManager();
 
@@ -20,7 +21,7 @@ namespace Platformer2D.Assets.Enemy.Cannon
             controllers = new Dictionary<CannonData, CannonController>();
             foreach(CannonData cannonData in cannons)
             {
-                controllers.Add(cannonData, new CannonController(cannonData, player, cannonBulletManager));
+                controllers.Add(cannonData, new CannonController(gameData, cannonData, player, cannonBulletManager));
             }
 
         }

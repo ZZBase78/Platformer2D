@@ -1,5 +1,6 @@
 ﻿using Platformer2D.Assets.CollidersScripts;
 using Platformer2D.Assets.Settings;
+using Platformer2D.Assets.Starter;
 using UnityEngine;
 
 namespace Platformer2D.Assets.PlayerScripts
@@ -11,37 +12,36 @@ namespace Platformer2D.Assets.PlayerScripts
         private Vector2 COLLIDER_SIZE = new Vector2(0.05f, 0.9f);
 
         private Player player;
+        private GameData gameData;
         private bool leftKey;
         private bool rightKey;
 
         private CollidersController collilersController;
 
-        public PlayerPhysicsMoveController(Player player)
+        public PlayerPhysicsMoveController(GameData gameData, Player player)
         {
             this.player = player;
+            this.gameData = gameData;
             collilersController = new CollidersController(MAX_COLLIDERS_CONTROL);
         }
 
         public void Update(float deltaTime)
         {
             PlayerState newPlayerState = PlayerState.Stand;
-            if (Input.GetKey(KeyCode.A))
+            leftKey = false;
+            rightKey = false;
+            if (gameData.gameState == GameState.Playing)
             {
-                leftKey = true;
-                newPlayerState = PlayerState.MoveLeft;
-            }
-            else 
-            { 
-                leftKey = false; 
-            }
-            if (Input.GetKey(KeyCode.D))
-            {
-                rightKey = true;
-                newPlayerState = PlayerState.MoveRight;
-            }
-            else
-            {
-                rightKey = false;
+                if (Input.GetKey(KeyCode.A))
+                {
+                    leftKey = true;
+                    newPlayerState = PlayerState.MoveLeft;
+                }
+                if (Input.GetKey(KeyCode.D))
+                {
+                    rightKey = true;
+                    newPlayerState = PlayerState.MoveRight;
+                }
             }
 
             player.playerState = newPlayerState;

@@ -33,13 +33,13 @@ namespace Platformer2D.Assets.Starter
             PlayerFactory playerFactory = new PlayerFactory();
             Player player = playerFactory.GetPlayer();
 
-            cannonManager = new CannonManager(cannons, player);
+            cannonManager = new CannonManager(cannons, gameData, player);
 
             coinManager = new CoinManager(levelData);
 
             new PlayerStartPosition().MoveToStart(player.view.transform, levelData);
 
-            playerController = new PlayerController(player);
+            playerController = new PlayerController(gameData, player);
 
             cameraController = new CameraController();
             cameraController.SetTarget(player.view.transform);

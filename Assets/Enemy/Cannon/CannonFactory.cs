@@ -34,6 +34,7 @@ namespace Platformer2D.Assets.Enemy.Cannon
             cannonData.maxDistanceCheckPlayer = cannonModel.maxDistanceCheckPlayer;
             cannonData.levelX = 0;
             cannonData.levelY = 0;
+            cannonData.health = cannonModel.health;
 
             return cannonData;
     }

@@ -9,14 +9,12 @@ namespace Platformer2D.Assets.CannonBullet
         private Dictionary<CannonBulletData, CannonBulletController> dictionary;
         private CannonBulletFactory cannonBulletFactory;
         private List<CannonBulletData> bulletToDestroy;
-        private GameObject explosionPrefab;
 
         public CannonBulletManager()
         {
             dictionary = new Dictionary<CannonBulletData, CannonBulletController>();
             cannonBulletFactory = new CannonBulletFactory();
             bulletToDestroy = new List<CannonBulletData>();
-            explosionPrefab = Resources.Load<GameObject>(ResourcesPathes.EXPLOSION_PREFAB);
         }
 
         public void Update(float deltaTime)
@@ -41,7 +39,7 @@ namespace Platformer2D.Assets.CannonBullet
 
         private void AddBullet(CannonBulletData cannonBulletData)
         {
-            dictionary.Add(cannonBulletData, new CannonBulletController(cannonBulletData, explosionPrefab));
+            dictionary.Add(cannonBulletData, new CannonBulletController(cannonBulletData));
         }
 
         private void RemoveBullet(CannonBulletData cannonBulletData)

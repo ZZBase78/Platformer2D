@@ -11,5 +11,6 @@ namespace Platformer2D.Assets.Enemy.Cannon
         public float minAngle;
         public float maxAngle;
         public float maxDistanceCheckPlayer;
+        public float health;
     }
 }

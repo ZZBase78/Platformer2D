@@ -9,13 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 05df93153e7237e4e950ee7914327ef7, type: 3}
-  m_Name: CannonModel
+  m_Script: {fileID: 11500000, guid: b53ea2361ac546c40ad8dd903deb95a2, type: 3}
+  m_Name: PlayerBulletModel
   m_EditorClassIdentifier: 
-  fireInterval: 1
-  fireForce: 2
-  rotateSpeed: 90
-  minAngle: -100
-  maxAngle: 100
-  maxDistanceCheckPlayer: 30
-  health: 100
+  damage: 50
+  destroyTime: 5
+  speed: 10

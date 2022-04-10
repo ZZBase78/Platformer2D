@@ -6,5 +6,6 @@
         public const string WALL = "Wall";
         public const string COIN = "Coin";
         public const string PORTAL = "Portal";
+        public const string ENEMY = "Enemy";
     }
 }

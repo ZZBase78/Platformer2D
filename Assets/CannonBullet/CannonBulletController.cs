@@ -7,11 +7,11 @@ namespace Platformer2D.Assets.CannonBullet
         private CannonBulletData cannonBulletData;
         private CannonBulletExploder cannonBulletExploder;
 
-        public CannonBulletController(CannonBulletData cannonBulletData, GameObject explosionPrefab)
+        public CannonBulletController(CannonBulletData cannonBulletData)
         {
             this.cannonBulletData = cannonBulletData;
             cannonBulletData.view.cannonBulletController = this;
-            cannonBulletExploder = new CannonBulletExploder(cannonBulletData, explosionPrefab);
+            cannonBulletExploder = new CannonBulletExploder(cannonBulletData);
         }
 
         public void OnCollisionEnter2D(Collision2D collision)

@@ -16,5 +16,6 @@
         public bool isPlayerVisible;
         public int levelX;
         public int levelY;
+        public float health;
     }
 }

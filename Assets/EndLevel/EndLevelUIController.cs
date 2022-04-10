@@ -8,8 +8,8 @@ namespace Platformer2D.Assets.EndLevel
     {
         public event Action actionButtonPressed;
 
-        private const string BUTTON_TEXT_RESTART = "Restart level";
-        private const string BUTTON_TEXT_NEXT_LEVEL = "Next level";
+        private const string BUTTON_TEXT_RESTART = "  Restart level  ";
+        private const string BUTTON_TEXT_NEXT_LEVEL = "  Next level  ";
 
         private GameObject prefab;
 

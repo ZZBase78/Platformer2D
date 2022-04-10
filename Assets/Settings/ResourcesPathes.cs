@@ -26,5 +26,8 @@
         public const string PORTAL_MODEL = "Portal/PortalModel";
 
         public const string END_LEVEL_UI_PREFAB = "EndLevel/EndLevelCanvas";
+
+        public const string PLAYER_BULLET_PREFAB = "PlayerBullet/PlayerBullet";
+        public const string PLAYER_BULLET_MODEL = "PlayerBullet/PlayerBulletModel";
     }
 }

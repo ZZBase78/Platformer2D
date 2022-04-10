@@ -11,6 +11,7 @@ namespace Platformer2D.Assets.PlayerScripts
     {
         public event Action actionPlayerDie;
         public event Action actionLevelExit;
+        public event Action<Vector2, Vector2> actionFire;
 
         private Player player;
         private GameData gameData;
@@ -21,6 +22,7 @@ namespace Platformer2D.Assets.PlayerScripts
         private PlayerOnGroundController playerOnGroundController;
         private PlayerFlyStateController playerFlyStateController;
         private PlayerPhysicsMoveController playerPhysicsMoveController;
+        private PlayerFireController playerFireController;
 
         public PlayerController(GameData gameData, Player player)
         {
@@ -37,6 +39,12 @@ namespace Platformer2D.Assets.PlayerScripts
             playerJumpController = new PlayerJumpController(gameData, player);
             playerOnGroundController = new PlayerOnGroundController(player);
             playerFlyStateController = new PlayerFlyStateController(player);
+            playerFireController = new PlayerFireController(player, Fire);
+        }
+
+        private void Fire(Vector2 position, Vector2 direction)
+        {
+            actionFire?.Invoke(position, direction);
         }
 
         public void OnTriggerEnter2D(Collider2D collision)
@@ -72,6 +80,7 @@ namespace Platformer2D.Assets.PlayerScripts
             playerFlyStateController.Update();
             animationController.Play(playerStateAnimation.GetAnimationData(player.playerState));
             animationController.Update(deltaTime);
+            playerFireController.Update();
         }
 
         public void FixedUpdate(float fixedDeltaTime)

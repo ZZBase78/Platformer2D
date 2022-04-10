@@ -3,6 +3,7 @@ using Platformer2D.Assets.Coin;
 using Platformer2D.Assets.EndLevel;
 using Platformer2D.Assets.Enemy.Cannon;
 using Platformer2D.Assets.LevelScripts;
+using Platformer2D.Assets.PlayerBullet;
 using Platformer2D.Assets.PlayerScripts;
 using Platformer2D.Assets.Portal;
 using System.Collections.Generic;
@@ -19,6 +20,7 @@ namespace Platformer2D.Assets.Starter
         private CoinManager coinManager;
         private PortalManager portalManager;
         private EndLevelController endLevelController;
+        private PlayerBulletController playerBulletController;
         
         public void Start()
         {
@@ -51,6 +53,9 @@ namespace Platformer2D.Assets.Starter
             endLevelController = new EndLevelController(gameData);
             playerController.actionLevelExit += endLevelController.LevelExitPortalReached;
 
+            playerBulletController = new PlayerBulletController();
+            playerController.actionFire += playerBulletController.Fire;
+
             gameData.gameState = GameState.Playing;
         }
 
@@ -61,6 +66,7 @@ namespace Platformer2D.Assets.Starter
             cannonManager.Update(deltaTime);
             coinManager.Update(deltaTime);
             portalManager.Update(deltaTime);
+            playerBulletController.Update(deltaTime);
         }
 
         public void FixedUpdate(float fixedDeltaTime)

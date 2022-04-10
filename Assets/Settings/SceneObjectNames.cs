@@ -6,5 +6,8 @@
         public const string WALL_TILEMAP = "WallTileMap";
         public const string CANNON_BULLET = "CannonBullet";
         public const string CANNON_BULLET_POOL = "POOL_CannonBullet";
+
+        public const string PLAYER_BULLET = "PlayerBullet";
+        public const string PLAYER_BULLET_POOL = "POOL_PlayerBullet";
     }
 }

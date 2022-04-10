@@ -11,6 +11,7 @@ namespace Platformer2D.Assets.Enemy.Cannon
         private Dictionary<CannonData, CannonController> controllers;
         private Player player;
         private CannonBulletManager cannonBulletManager;
+        private List<CannonData> removeCannons;
 
         public CannonManager(List<CannonData> cannons, GameData gameData, Player player)
         {
@@ -24,11 +25,27 @@ namespace Platformer2D.Assets.Enemy.Cannon
                 controllers.Add(cannonData, new CannonController(gameData, cannonData, player, cannonBulletManager));
             }
 
+            removeCannons = new List<CannonData>();
+        }
+
+        private void CheckDestroy()
+        {
+            removeCannons.Clear();
+            foreach (var keyValuePair in controllers)
+            {
+                if (keyValuePair.Key.health <= 0) removeCannons.Add(keyValuePair.Key);
+            }
+            foreach (var cannonData in removeCannons)
+            {
+                controllers.Remove(cannonData);
+                GameObject.Destroy(cannonData.view.gameObject);
+            }
         }
 
         public void Update(float deltaTime)
         {
-            foreach(var keyValuePair in controllers)
+            CheckDestroy();
+            foreach (var keyValuePair in controllers)
             {
                 keyValuePair.Value.Update(deltaTime);
             }

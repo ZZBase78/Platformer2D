@@ -1,22 +1,21 @@
-﻿using UnityEngine;
+﻿using Platformer2D.Assets.Effects;
 
 namespace Platformer2D.Assets.CannonBullet
 {
     internal sealed class CannonBulletExploder
     {
         private CannonBulletData cannonBulletData;
-        private GameObject explosionPrefab;
+        private EffectsController effectsController;
 
-        public CannonBulletExploder(CannonBulletData cannonBulletData, GameObject explosionPrefab)
+        public CannonBulletExploder(CannonBulletData cannonBulletData)
         {
             this.cannonBulletData = cannonBulletData;
-            this.explosionPrefab = explosionPrefab;
+            effectsController = new EffectsController();
         }
 
         public void Explode()
         {
-            GameObject gameObject = GameObject.Instantiate(explosionPrefab);
-            gameObject.transform.position = cannonBulletData.view.transformView.position;
+            effectsController.Explode(cannonBulletData.view.transformView.position);
             cannonBulletData.timeToDestroy = 0;
         }
 

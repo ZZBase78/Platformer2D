@@ -56,22 +56,16 @@ namespace Platformer2D.Assets.Starter
 
         public void Update(float deltaTime)
         {
-            if (gameData.gameState == GameState.Playing)
-            {
-                playerController.Update(deltaTime);
-                cameraController.Update(deltaTime);
-                cannonManager.Update(deltaTime);
-                coinManager.Update(deltaTime);
-                portalManager.Update(deltaTime);
-            }
+            playerController.Update(deltaTime);
+            cameraController.Update(deltaTime);
+            cannonManager.Update(deltaTime);
+            coinManager.Update(deltaTime);
+            portalManager.Update(deltaTime);
         }
 
         public void FixedUpdate(float fixedDeltaTime)
         {
-            if (gameData.gameState == GameState.Playing)
-            {
-                playerController.FixedUpdate(fixedDeltaTime);
-            }
+            playerController.FixedUpdate(fixedDeltaTime);
         }
     }
 }

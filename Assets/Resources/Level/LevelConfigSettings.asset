@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c202ece84056b041ade6c31d11a78a3, type: 3}
   m_Name: LevelConfigSettings
   m_EditorClassIdentifier: 
-  width: 10
-  height: 10
+  width: 3
+  height: 3
   cellWidth: 10
   cellHeight: 3
   wallWidth: 1
   wallHeight: 1
-  cannonCount: 20
+  cannonCount: 3
   cannonMinDistantion: 5
-  coinCount: 100
+  coinCount: 10

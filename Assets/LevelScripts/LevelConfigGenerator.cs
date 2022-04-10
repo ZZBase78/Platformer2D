@@ -80,7 +80,18 @@ namespace Platformer2D.Assets.LevelScripts
             return list;
         }
 
-        private void SetPerimittedDirection(LevelCellConfig cell1, LevelCellConfig cell2)
+        private void SetForbiddenDirectionUp(LevelConfig levelConfig, int x, int y)
+        {
+            if (x < 0 || x >= levelConfig.width || y < 0 || y >= levelConfig.height) return;
+            levelConfig.levelCellConfigs[x, y].forbiddenDirectionSet.up = true;
+        }
+        private void SetForbiddenDirectionDown(LevelConfig levelConfig, int x, int y)
+        {
+            if (x < 0 || x >= levelConfig.width || y < 0 || y >= levelConfig.height) return;
+            levelConfig.levelCellConfigs[x, y].forbiddenDirectionSet.down = true;
+        }
+
+        private void SetPerimittedDirection(LevelConfig levelConfig, LevelCellConfig cell1, LevelCellConfig cell2)
         {
             if ((cell1.x == cell2.x - 1) && (cell1.y == cell2.y))
             {
@@ -99,6 +110,11 @@ namespace Platformer2D.Assets.LevelScripts
 
                 cell2.permittedDirectionSet.down = true;
                 cell2.forbiddenDirectionSet.up = true;
+
+                SetForbiddenDirectionUp(levelConfig, cell1.x - 1, cell1.y);
+                SetForbiddenDirectionUp(levelConfig, cell1.x + 1, cell1.y);
+                SetForbiddenDirectionDown(levelConfig, cell1.x - 1, cell2.y);
+                SetForbiddenDirectionDown(levelConfig, cell1.x + 1, cell2.y);
             }
             if ((cell1.y == cell2.y + 1) && (cell1.x == cell2.x))
             {
@@ -107,6 +123,11 @@ namespace Platformer2D.Assets.LevelScripts
 
                 cell2.permittedDirectionSet.up = true;
                 cell2.forbiddenDirectionSet.down = true;
+
+                SetForbiddenDirectionUp(levelConfig, cell1.x - 1, cell2.y);
+                SetForbiddenDirectionUp(levelConfig, cell1.x + 1, cell2.y);
+                SetForbiddenDirectionDown(levelConfig, cell1.x - 1, cell1.y);
+                SetForbiddenDirectionDown(levelConfig, cell1.x + 1, cell1.y);
             }
         }
 
@@ -119,7 +140,7 @@ namespace Platformer2D.Assets.LevelScripts
                 if (nearCells.Count > 0)
                 {
                     LevelCellConfig nearCell = nearCells.GetRandom();
-                    SetPerimittedDirection(levelCellConfig, nearCell);
+                    SetPerimittedDirection(levelConfig, levelCellConfig, nearCell);
                     SetReachedCell(levelCellConfig, unreachableCells);
                 }
             }

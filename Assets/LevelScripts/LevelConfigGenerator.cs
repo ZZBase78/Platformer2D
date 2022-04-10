@@ -80,14 +80,19 @@ namespace Platformer2D.Assets.LevelScripts
             return list;
         }
 
+        private bool CheckLevelConfigBounds(LevelConfig levelConfig, int x, int y)
+        {
+            return !(x < 0 || x >= levelConfig.width || y < 0 || y >= levelConfig.height);
+        }
+
         private void SetForbiddenDirectionUp(LevelConfig levelConfig, int x, int y)
         {
-            if (x < 0 || x >= levelConfig.width || y < 0 || y >= levelConfig.height) return;
+            if (!CheckLevelConfigBounds(levelConfig, x, y)) return;
             levelConfig.levelCellConfigs[x, y].forbiddenDirectionSet.up = true;
         }
         private void SetForbiddenDirectionDown(LevelConfig levelConfig, int x, int y)
         {
-            if (x < 0 || x >= levelConfig.width || y < 0 || y >= levelConfig.height) return;
+            if (!CheckLevelConfigBounds(levelConfig, x, y)) return;
             levelConfig.levelCellConfigs[x, y].forbiddenDirectionSet.down = true;
         }
 

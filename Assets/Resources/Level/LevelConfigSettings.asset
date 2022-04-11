@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c202ece84056b041ade6c31d11a78a3, type: 3}
   m_Name: LevelConfigSettings
   m_EditorClassIdentifier: 
-  width: 3
-  height: 3
+  width: 5
+  height: 5
   cellWidth: 10
   cellHeight: 3
   wallWidth: 1

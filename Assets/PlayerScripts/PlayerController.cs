@@ -42,6 +42,11 @@ namespace Platformer2D.Assets.PlayerScripts
             playerFireController = new PlayerFireController(player, Fire);
         }
 
+        public void SetDamage(float damage)
+        {
+
+        }
+
         private void Fire(Vector2 position, Vector2 direction)
         {
             actionFire?.Invoke(position, direction);

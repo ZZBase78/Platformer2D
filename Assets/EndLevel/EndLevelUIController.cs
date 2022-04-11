@@ -20,15 +20,25 @@ namespace Platformer2D.Assets.EndLevel
             prefab = Resources.Load<GameObject>(ResourcesPathes.END_LEVEL_UI_PREFAB);
         }
 
-        public void ShowRestart()
+        private void Show(string buttonText)
         {
             gameObject = GameObject.Instantiate(prefab);
 
             EndLevelUIView endLevelUIView = gameObject.GetComponent<EndLevelUIView>();
             if (endLevelUIView == null) throw new Exception(ErrorMessages.END_LEVEL_UI_VIEW_NOT_FOUND);
 
-            endLevelUIView.buttonText.text = BUTTON_TEXT_RESTART;
+            endLevelUIView.buttonText.text = buttonText;
             endLevelUIView.button.onClick.AddListener(ButtonPressed);
+        }
+
+        public void ShowRestart()
+        {
+            Show(BUTTON_TEXT_RESTART);
+        }
+
+        public void ShowNextLevel()
+        {
+            Show(BUTTON_TEXT_NEXT_LEVEL);
         }
 
         public void Destroy()

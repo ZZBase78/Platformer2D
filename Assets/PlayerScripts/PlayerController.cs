@@ -23,6 +23,7 @@ namespace Platformer2D.Assets.PlayerScripts
         private PlayerFlyStateController playerFlyStateController;
         private PlayerPhysicsMoveController playerPhysicsMoveController;
         private PlayerFireController playerFireController;
+        private PlayerDamageController playerDamageController;
 
         public PlayerController(GameData gameData, Player player)
         {
@@ -40,11 +41,12 @@ namespace Platformer2D.Assets.PlayerScripts
             playerOnGroundController = new PlayerOnGroundController(player);
             playerFlyStateController = new PlayerFlyStateController(player);
             playerFireController = new PlayerFireController(player, Fire);
+            playerDamageController = new PlayerDamageController(player, PlayerDie);
         }
 
         public void SetDamage(float damage)
         {
-
+            playerDamageController.SetDamage(damage);
         }
 
         private void Fire(Vector2 position, Vector2 direction)

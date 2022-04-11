@@ -45,13 +45,13 @@ namespace Platformer2D.Assets.Starter
 
             cameraController = new CameraController();
             cameraController.SetTarget(player.view.transform);
-            playerController.actionPlayerDie += cameraController.UnSetTarget;
 
             portalManager = new PortalManager(levelData);
             portalManager.CreateExitPortal();
 
             endLevelController = new EndLevelController(gameData);
             playerController.actionLevelExit += endLevelController.LevelExitPortalReached;
+            playerController.actionPlayerDie += endLevelController.PlayerDie;
 
             playerBulletController = new PlayerBulletController();
             playerController.actionFire += playerBulletController.Fire;

@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using Platformer2D.Assets.Interfaces;
+using Platformer2D.Assets.Settings;
+using UnityEngine;
 
 namespace Platformer2D.Assets.CannonBullet
 {
@@ -17,6 +19,12 @@ namespace Platformer2D.Assets.CannonBullet
         public void OnCollisionEnter2D(Collision2D collision)
         {
             cannonBulletExploder.Explode();
+
+            if (collision.collider.CompareTag(GameTags.PLAYER))
+            {
+                IDamageable damageable = collision.collider.GetComponentInParent<IDamageable>();
+                if (damageable != null) damageable.SetDamage(cannonBulletData.damage);
+            }
         }
 
         public void Update(float deltaTime)

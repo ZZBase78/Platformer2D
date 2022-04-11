@@ -20,6 +20,7 @@ namespace Platformer2D.Assets.PlayerScripts
             Player player = new Player();
             player.moveSpeed = playerModel.moveSpeed;
             player.jumpForce = playerModel.jumpForce;
+            player.health = playerModel.health;
 
             player.view = playerViewFactory.GetPlayerView();
             player.playerState = PlayerState.Stand;

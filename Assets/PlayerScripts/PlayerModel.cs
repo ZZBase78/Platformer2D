@@ -12,5 +12,6 @@ namespace Platformer2D.Assets.PlayerScripts
     {
         public float moveSpeed;
         public float jumpForce;
+        public float health;
     }
 }

@@ -1,4 +1,5 @@
-﻿using Platformer2D.Assets.Enemy.Cannon;
+﻿using Platformer2D.Assets.ChainMace;
+using Platformer2D.Assets.Enemy.Cannon;
 using UnityEngine.Tilemaps;
 
 namespace Platformer2D.Assets.LevelScripts
@@ -8,6 +9,7 @@ namespace Platformer2D.Assets.LevelScripts
         public bool isWall;
         public bool isCoin;
         public CannonLevelValue cannon;
+        public ChainMaceLevelValue chainMace;
 
         public bool isTiled;
         public Tile tile;
@@ -19,6 +21,7 @@ namespace Platformer2D.Assets.LevelScripts
             isCoin = false;
             tile = null;
             cannon = CannonLevelValue.None;
+            chainMace = ChainMaceLevelValue.None;
         }
     }
 }

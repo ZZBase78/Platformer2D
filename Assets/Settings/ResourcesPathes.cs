@@ -29,5 +29,8 @@
 
         public const string PLAYER_BULLET_PREFAB = "PlayerBullet/PlayerBullet";
         public const string PLAYER_BULLET_MODEL = "PlayerBullet/PlayerBulletModel";
+
+        public const string CHAIN_MACE_MOTOR_PING_PONG_MODEL = "ChainMace/ChainMaceMotorPingPongModel";
+        public const string CHAIN_MACE_PREFAB = "ChainMace/ChainMace";
     }
 }

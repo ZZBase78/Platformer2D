@@ -1,4 +1,5 @@
-﻿using Platformer2D.Assets.Enemy.Cannon;
+﻿using Platformer2D.Assets.ChainMace;
+using Platformer2D.Assets.Enemy.Cannon;
 using Platformer2D.Assets.Extention;
 using Platformer2D.Assets.LevelScripts;
 using System.Collections.Generic;
@@ -89,6 +90,7 @@ namespace Platformer2D.Assets.Coin
 
             if (levelCoordinator.IsWall(x, y)) return false;
             if (levelElement.cannon != CannonLevelValue.None) return false;
+            if (levelElement.chainMace != ChainMaceLevelValue.None) return false;
 
             if (levelCoordinator.IsWall(x, y - 1)) return true;
             if (levelCoordinator.IsWall(x, y - 2)) return true;

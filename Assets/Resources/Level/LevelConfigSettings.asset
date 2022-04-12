@@ -21,3 +21,5 @@ MonoBehaviour:
   cannonCount: 3
   cannonMinDistantion: 5
   coinCount: 10
+  chainMaceCount: 2
+  chainMaceMinDistantion: 6

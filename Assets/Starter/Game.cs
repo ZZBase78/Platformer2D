@@ -1,4 +1,5 @@
 using Platformer2D.Assets.CameraScripts;
+using Platformer2D.Assets.ChainMace;
 using Platformer2D.Assets.Coin;
 using Platformer2D.Assets.EndLevel;
 using Platformer2D.Assets.Enemy.Cannon;
@@ -21,6 +22,7 @@ namespace Platformer2D.Assets.Starter
         private PortalManager portalManager;
         private EndLevelController endLevelController;
         private PlayerBulletController playerBulletController;
+        private ChainMaceController chainMaceController;
         
         public void Start()
         {
@@ -31,6 +33,8 @@ namespace Platformer2D.Assets.Starter
 
             List<CannonData> cannons = new CannonLevelPlacer(levelData).PlaceCannons();
 
+            chainMaceController = new ChainMaceController(levelData);
+            chainMaceController.PlaceRandom();
 
             PlayerFactory playerFactory = new PlayerFactory();
             Player player = playerFactory.GetPlayer();
@@ -67,6 +71,7 @@ namespace Platformer2D.Assets.Starter
             coinManager.Update(deltaTime);
             portalManager.Update(deltaTime);
             playerBulletController.Update(deltaTime);
+            chainMaceController.Update(deltaTime);
         }
 
         public void FixedUpdate(float fixedDeltaTime)

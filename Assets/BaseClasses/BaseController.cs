@@ -38,7 +38,7 @@ namespace Platformer2D.Assets.BaseClasses
             foreach (T value in removeList)
             {
                 list.Remove(value);
-                DestroyElement(value);
+                Destroy(value);
             }
             removeList.Clear();
         }
@@ -53,7 +53,7 @@ namespace Platformer2D.Assets.BaseClasses
             removeList.Add(value);
         }
 
-        protected abstract void DestroyElement(T value);
+        protected abstract void Destroy(T value);
         protected abstract void UpdateElement(T value, float deltaTime);
     }
 }

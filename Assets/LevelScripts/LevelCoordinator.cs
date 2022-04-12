@@ -79,5 +79,11 @@ namespace Platformer2D.Assets.LevelScripts
         {
             return (levelX >= levelExitMinX) && (levelX <= levelExitMaxX) && (levelY >= levelExitMinY) && (levelY <= levelExitMaxY);
         }
+
+        public bool IsEmpty(int levelX, int levelY)
+        {
+            if (!CheckBounds(levelX, levelY)) return false;
+            return levelData.levelElements[levelX, levelY].isEmpty();
+        }
     }
 }

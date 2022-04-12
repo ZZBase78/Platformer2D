@@ -23,5 +23,14 @@ namespace Platformer2D.Assets.LevelScripts
             cannon = CannonLevelValue.None;
             chainMace = ChainMaceLevelValue.None;
         }
+
+        public bool isEmpty()
+        {
+            return
+                (isWall == false) && 
+                (isCoin == false) && 
+                (cannon == CannonLevelValue.None) && 
+                (chainMace == ChainMaceLevelValue.None);
+        }
     }
 }

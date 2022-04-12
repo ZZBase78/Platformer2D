@@ -11,5 +11,6 @@
         public const string PORTALVIEW_VIEW_NOT_FOUND = "Error #6: PortalView component not found on Portal prefab";
         public const string END_LEVEL_UI_VIEW_NOT_FOUND = "Error #7: EndLelevUIView component not found on EndLevelUI prefab";
         public const string PLAYER_BULLET_VIEW_NOT_FOUND = "Error #8: Component not found";
+        public const string CHAIN_MACE_VIEW_NOT_FOUND = "Error #9: Component not found";
     }
 }

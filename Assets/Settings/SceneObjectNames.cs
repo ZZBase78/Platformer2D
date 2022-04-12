@@ -9,5 +9,8 @@
 
         public const string PLAYER_BULLET = "PlayerBullet";
         public const string PLAYER_BULLET_POOL = "POOL_PlayerBullet";
+
+        public const string CHAIN_MACE = "ChainMace";
+        public const string CHAIN_MACE_POOL = "POOL_ChainMace";
     }
 }

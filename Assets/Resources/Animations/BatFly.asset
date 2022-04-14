@@ -12,6 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 281bbad54b500f04bbf9d2d17b311e86, type: 3}
   m_Name: BatFly
   m_EditorClassIdentifier: 
-  speed: 0
-  loop: 0
-  list: []
+  speed: 20
+  loop: 1
+  list:
+  - {fileID: 21300000, guid: c117fe2c8b5b5c64cb170b4c6d97bc3b, type: 3}
+  - {fileID: 21300000, guid: 2c972b03900dfc14088e3b84f4331b18, type: 3}
+  - {fileID: 21300000, guid: ca33ed0e688ebbe429462c2ac1e85093, type: 3}
+  - {fileID: 21300000, guid: 8c2323dea69a465459619ed62dfa5de7, type: 3}
+  - {fileID: 21300000, guid: 67f8fe763c983584ba1d1e3d19c3ad4d, type: 3}

@@ -30,5 +30,14 @@ namespace Platformer2D.Assets.AnimationScripts
 
             return animationData;
         }
+
+        public AnimationData CreateRandomSpeedDeviation(string resourcePathString, float deviationPercent)
+        {
+            AnimationData data = Create(resourcePathString);
+            float deviationValue = deviationPercent / 100f;
+            float newSpeed = UnityEngine.Random.Range(data.speed - deviationValue, data.speed + deviationValue);
+            data.speed = newSpeed;
+            return data;
+        }
     }
 }

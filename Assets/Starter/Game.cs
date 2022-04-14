@@ -2,6 +2,7 @@ using Platformer2D.Assets.CameraScripts;
 using Platformer2D.Assets.ChainMace;
 using Platformer2D.Assets.Coin;
 using Platformer2D.Assets.EndLevel;
+using Platformer2D.Assets.Enemy.Bat;
 using Platformer2D.Assets.Enemy.Cannon;
 using Platformer2D.Assets.LevelScripts;
 using Platformer2D.Assets.PlayerBullet;
@@ -23,6 +24,7 @@ namespace Platformer2D.Assets.Starter
         private EndLevelController endLevelController;
         private PlayerBulletController playerBulletController;
         private ChainMaceController chainMaceController;
+        private BatManager batManager;
         
         public void Start()
         {
@@ -42,6 +44,9 @@ namespace Platformer2D.Assets.Starter
             cannonManager = new CannonManager(cannons, gameData, player);
 
             coinManager = new CoinManager(levelData);
+
+            batManager = new BatManager(levelData);
+            batManager.PlaceRandom();
 
             new PlayerStartPosition().MoveToStart(player.view.transform, levelData);
 
@@ -72,6 +77,7 @@ namespace Platformer2D.Assets.Starter
             portalManager.Update(deltaTime);
             playerBulletController.Update(deltaTime);
             chainMaceController.Update(deltaTime);
+            batManager.Update(deltaTime);
         }
 
         public void FixedUpdate(float fixedDeltaTime)

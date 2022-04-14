@@ -16,5 +16,7 @@ namespace Platformer2D.Assets.LevelScripts
         public int coinCount;
         public int chainMaceCount;
         public float chainMaceMinDistantion;
+        public int batCount;
+        public float batMinDistantion;
     }
 }

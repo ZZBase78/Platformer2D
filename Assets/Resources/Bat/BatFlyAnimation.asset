@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 281bbad54b500f04bbf9d2d17b311e86, type: 3}
   m_Name: BatFlyAnimation
   m_EditorClassIdentifier: 
-  speed: 20
+  speed: 10
   loop: 1
   list:
   - {fileID: 21300000, guid: c117fe2c8b5b5c64cb170b4c6d97bc3b, type: 3}

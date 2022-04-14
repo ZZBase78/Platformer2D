@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using Platformer2D.Assets.LevelScripts;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Platformer2D.Assets.Enemy.Bat
@@ -10,12 +11,20 @@ namespace Platformer2D.Assets.Enemy.Bat
         private List<BatData> removeList;
         private BatFactory factory;
 
-        public BatManager()
+        private BatLevelPlacer batLevelPlacer;
+        private LevelData levelData;
+        private LevelCoordinator levelCoordinator;
+
+        public BatManager(LevelData _levelData)
         {
+            levelData = _levelData;
+
             dictionary = new Dictionary<BatData, BatController>();
             addList = new List<BatData>();
             removeList = new List<BatData>();
             factory = new BatFactory();
+            batLevelPlacer = new BatLevelPlacer(levelData);
+            levelCoordinator = new LevelCoordinator(levelData);
         }
 
         public void Update(float deltaTime)
@@ -61,6 +70,18 @@ namespace Platformer2D.Assets.Enemy.Bat
         {
             factory.Destroy(data);
             data = null;
+        }
+
+        public void PlaceRandom()
+        {
+            List<Vector2Int> placedPositions = batLevelPlacer.Place();
+
+            foreach (Vector2Int position in placedPositions)
+            {
+                BatData batData = factory.Create();
+                batData.view.transformView.position = position + levelCoordinator.worldOffSet;
+                AddElement(batData);
+            }
         }
     }
 }

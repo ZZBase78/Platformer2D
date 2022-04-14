@@ -12,5 +12,8 @@
 
         public const string CHAIN_MACE = "ChainMace";
         public const string CHAIN_MACE_POOL = "POOL_ChainMace";
+
+        public const string BAT = "ChainMace";
+        public const string BAT_POOL = "POOL_ChainMace";
     }
 }

@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 281bbad54b500f04bbf9d2d17b311e86, type: 3}
-  m_Name: BatFly
+  m_Name: BatFlyAnimation
   m_EditorClassIdentifier: 
   speed: 20
   loop: 1

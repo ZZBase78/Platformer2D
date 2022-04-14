@@ -32,5 +32,9 @@
 
         public const string CHAIN_MACE_MOTOR_PING_PONG_MODEL = "ChainMace/ChainMaceMotorPingPongModel";
         public const string CHAIN_MACE_PREFAB = "ChainMace/ChainMace";
+
+        public const string BAT_PREFAB = "Bat/Bat";
+        public const string BAT_MODEL = "Bat/BatModel";
+        public const string BAT_FLY_ANNIMATION_TRACK = "Bat/BatFlyAnimation";
     }
 }

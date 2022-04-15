@@ -85,5 +85,29 @@ namespace Platformer2D.Assets.LevelScripts
             if (!CheckBounds(levelX, levelY)) return false;
             return levelData.levelElements[levelX, levelY].isEmpty();
         }
+
+        public Vector2Int GetCellFromWorld(Vector2 worldPosition)
+        {
+            float worldX = worldPosition.x;
+            float halfCellX = (float)cellWidth / 2f;
+            float offsetX = (float)wallWidth + halfCellX;
+            float deviderX = (float)(wallWidth + cellWidth);
+            int cellX = Mathf.RoundToInt((worldX - offsetX) / deviderX);
+
+            float worldY = worldPosition.y;
+            float halfCellY = (float)cellHeight / 2f;
+            float offsetY = (float)wallHeight + halfCellY;
+            float deviderY = (float)(wallHeight + cellHeight);
+            int cellY = Mathf.RoundToInt((worldY - offsetY) / deviderY);
+
+            return new Vector2Int(cellX, cellY);
+        }
+
+        public Vector2Int GetLevelFromWorld(Vector2 worldPosition)
+        {
+            int x = Mathf.RoundToInt(worldPosition.x - worldOffSet.x);
+            int y = Mathf.RoundToInt(worldPosition.y - worldOffSet.y);
+            return new Vector2Int(x, y);
+        }
     }
 }

@@ -5,10 +5,12 @@ using Platformer2D.Assets.EndLevel;
 using Platformer2D.Assets.Enemy.Bat;
 using Platformer2D.Assets.Enemy.Cannon;
 using Platformer2D.Assets.LevelScripts;
+using Platformer2D.Assets.PathFinder;
 using Platformer2D.Assets.PlayerBullet;
 using Platformer2D.Assets.PlayerScripts;
 using Platformer2D.Assets.Portal;
 using System.Collections.Generic;
+using UnityEngine;
 
 namespace Platformer2D.Assets.Starter
 {
@@ -25,6 +27,7 @@ namespace Platformer2D.Assets.Starter
         private PlayerBulletController playerBulletController;
         private ChainMaceController chainMaceController;
         private BatManager batManager;
+        private PathFinderManager pathFinderManager;
         
         public void Start()
         {
@@ -65,6 +68,8 @@ namespace Platformer2D.Assets.Starter
             playerBulletController = new PlayerBulletController();
             playerController.actionFire += playerBulletController.Fire;
 
+            pathFinderManager = new PathFinderManager(levelData);
+
             gameData.gameState = GameState.Playing;
         }
 
@@ -78,6 +83,8 @@ namespace Platformer2D.Assets.Starter
             playerBulletController.Update(deltaTime);
             chainMaceController.Update(deltaTime);
             batManager.Update(deltaTime);
+
+            pathFinderManager.Update();
         }
 
         public void FixedUpdate(float fixedDeltaTime)

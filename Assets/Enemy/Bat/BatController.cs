@@ -15,6 +15,8 @@ namespace Platformer2D.Assets.Enemy.Bat
         private BatPatrolController batPatrolController;
         private PathFinderManager pathFinderManager;
         private LevelData levelData;
+        private BatSpriteFlipController batSpriteFlipController;
+        private SmoothTargetMoveController smoothTargetMoveController;
 
         public BatController(BatData data, PathFinderManager pathFinderManager, LevelData levelData)
         {
@@ -27,13 +29,17 @@ namespace Platformer2D.Assets.Enemy.Bat
             batTargetMove = new BatTargetMove(data.view.transformView.position);
             batMoveController = new BatMoveController(data, batTargetMove);
             batPatrolController = new BatPatrolController(data, batTargetMove, pathFinderManager, levelData);
+            batSpriteFlipController = new BatSpriteFlipController(data);
+            smoothTargetMoveController = new SmoothTargetMoveController(data, batTargetMove);
         }
 
         public void Update(float deltaTime)
         {
-            animationController.Update(deltaTime);
             batPatrolController.Update();
+            smoothTargetMoveController.Update(deltaTime);
             batMoveController.Update(deltaTime);
+            batSpriteFlipController.Update();
+            animationController.Update(deltaTime);
         }
     }
 }

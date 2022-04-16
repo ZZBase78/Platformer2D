@@ -6,5 +6,6 @@
         public float normalSpeed;
         public float chaseSpeed;
         public BatState state;
+        public HorizontalMoveDirection horizontalMoveDirection;
     }
 }

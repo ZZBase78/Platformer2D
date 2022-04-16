@@ -6,7 +6,7 @@ namespace Platformer2D.Assets.Enemy.Bat
 {
     internal sealed class BatPatrolController
     {
-        private const float MIN_DISTANCE = 0.1f;
+        private const float MIN_DISTANCE = 0.05f;
 
         private LevelData levelData;
         private LevelCoordinator levelCoordinator;
@@ -50,7 +50,7 @@ namespace Platformer2D.Assets.Enemy.Bat
 
         private bool CheckDistance()
         {
-            float currentDistance = (batData.view.transformView.position - batTargetMove.target).magnitude;
+            float currentDistance = (batTargetMove.smoothTarget - batTargetMove.target).magnitude;
             return currentDistance <= MIN_DISTANCE;
         }
 

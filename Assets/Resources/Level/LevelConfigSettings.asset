@@ -23,5 +23,5 @@ MonoBehaviour:
   coinCount: 10
   chainMaceCount: 2
   chainMaceMinDistantion: 6
-  batCount: 5
+  batCount: 10
   batMinDistantion: 1

@@ -1,4 +1,5 @@
 ﻿using Platformer2D.Assets.LevelScripts;
+using Platformer2D.Assets.PathFinder;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -14,10 +15,12 @@ namespace Platformer2D.Assets.Enemy.Bat
         private BatLevelPlacer batLevelPlacer;
         private LevelData levelData;
         private LevelCoordinator levelCoordinator;
+        private PathFinderManager pathFinderManager;
 
-        public BatManager(LevelData _levelData)
+        public BatManager(LevelData levelData, PathFinderManager pathFinderManager)
         {
-            levelData = _levelData;
+            this.levelData = levelData;
+            this.pathFinderManager = pathFinderManager;
 
             dictionary = new Dictionary<BatData, BatController>();
             addList = new List<BatData>();
@@ -41,7 +44,7 @@ namespace Platformer2D.Assets.Enemy.Bat
         {
             foreach (BatData data in addList)
             {
-                dictionary.Add(data, new BatController(data));
+                dictionary.Add(data, new BatController(data, pathFinderManager, levelData));
             }
             addList.Clear();
         }

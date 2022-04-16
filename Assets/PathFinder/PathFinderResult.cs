@@ -5,13 +5,15 @@ namespace Platformer2D.Assets.PathFinder
 {
     internal sealed class PathFinderResult
     {
+        public PathFinderTask task;
         public List<Vector2> resultPath;
         public bool isFound;
 
-        public PathFinderResult()
+        public PathFinderResult(PathFinderTask task, bool isFound)
         {
+            this.task = task;
+            this.isFound = isFound;
             resultPath = new List<Vector2>();
-            isFound = false;
         }
     }
 }

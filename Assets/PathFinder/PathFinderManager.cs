@@ -83,10 +83,16 @@ namespace Platformer2D.Assets.PathFinder
             }
         }
 
-        public void GetPathResult(Vector2 startPosition, Vector2 finishPosition, Action<PathFinderResult> actionResult)
+        public PathFinderTask GetPathResult(Vector2 startPosition, Vector2 finishPosition, Action<PathFinderResult> actionResult)
         {
             PathFinderTask task = new PathFinderTask(startPosition, finishPosition, levelData, bigGraphsList, bigGraphs, smallGraphs, actionResult);
             tasks.Add(task);
+            return task;
+        }
+
+        public void StopFinding(PathFinderTask task)
+        {
+            task.isComplete = true;
         }
     }
 }

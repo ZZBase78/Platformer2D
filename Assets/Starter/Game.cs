@@ -36,6 +36,8 @@ namespace Platformer2D.Assets.Starter
             LevelData levelData = new LevelGenerator().Generate();
             new LevelDisplay().Display(levelData);
 
+            pathFinderManager = new PathFinderManager(levelData);
+
             List<CannonData> cannons = new CannonLevelPlacer(levelData).PlaceCannons();
 
             chainMaceController = new ChainMaceController(levelData);
@@ -48,7 +50,7 @@ namespace Platformer2D.Assets.Starter
 
             coinManager = new CoinManager(levelData);
 
-            batManager = new BatManager(levelData);
+            batManager = new BatManager(levelData, pathFinderManager);
             batManager.PlaceRandom();
 
             new PlayerStartPosition().MoveToStart(player.view.transform, levelData);
@@ -67,8 +69,6 @@ namespace Platformer2D.Assets.Starter
 
             playerBulletController = new PlayerBulletController();
             playerController.actionFire += playerBulletController.Fire;
-
-            pathFinderManager = new PathFinderManager(levelData);
 
             gameData.gameState = GameState.Playing;
         }

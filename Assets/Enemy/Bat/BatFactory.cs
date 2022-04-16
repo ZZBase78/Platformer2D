@@ -28,6 +28,7 @@ namespace Platformer2D.Assets.Enemy.Bat
             data.view = view;
             data.normalSpeed = model.normalSpeed;
             data.chaseSpeed = model.chaseSpeed;
+            data.state = BatState.Patrol;
 
             return data;
         }

@@ -8,7 +8,7 @@ namespace Platformer2D.Assets.PathFinder
 {
     internal sealed class PathFinderTask
     {
-        public const float RANDOM_WEIGHT = 100f;
+        private const float RANDOM_WEIGHT = 100f;
         public bool isComplete;
 
         private Vector2 startPosition;
@@ -62,8 +62,7 @@ namespace Platformer2D.Assets.PathFinder
                 if (!seeker.isFound)
                 {
                     isComplete = true;
-                    PathFinderResult result = new PathFinderResult();
-                    result.isFound = false;
+                    PathFinderResult result = new PathFinderResult(this, false);
                     actionResult?.Invoke(result);
                     return;
                 }
@@ -88,14 +87,32 @@ namespace Platformer2D.Assets.PathFinder
             int finishMinDistance = 0; //INT because sqr Magnitude from Vector2Int
 
             List<PathFinderGraph> smallGraphsList = new List<PathFinderGraph>();
-            for(int bigIndex = 0; bigIndex < seeker.resultPath.Count - 1; bigIndex++)
+            for(int bigIndex = 0; bigIndex < seeker.resultPath.Count; bigIndex++)
             {
-                PathFinderGraph firstGraph = seeker.resultPath[bigIndex];
-                PathFinderGraph secondGraph = seeker.resultPath[bigIndex + 1];
-                int minX = levelCoordinator.GetLevelLeftXFromCellX(Mathf.Min(firstGraph.x, secondGraph.x));
-                int maxX = levelCoordinator.GetLevelRightXFromCellX(Mathf.Max(firstGraph.x, secondGraph.x));
-                int minY = levelCoordinator.GetLevelDownYFromCellY(Mathf.Min(firstGraph.y, secondGraph.y));
-                int maxY = levelCoordinator.GetLevelUpYFromCellY(Mathf.Max(firstGraph.y, secondGraph.y));
+                
+                int minX;
+                int maxX;
+                int minY;
+                int maxY;
+
+                if (bigIndex == seeker.resultPath.Count - 1)
+                {
+                    PathFinderGraph firstGraph = seeker.resultPath[bigIndex];
+                    minX = levelCoordinator.GetLevelLeftXFromCellX(firstGraph.x);
+                    maxX = levelCoordinator.GetLevelRightXFromCellX(firstGraph.x);
+                    minY = levelCoordinator.GetLevelDownYFromCellY(firstGraph.y);
+                    maxY = levelCoordinator.GetLevelUpYFromCellY(firstGraph.y);
+                }
+                else
+                {
+                    PathFinderGraph firstGraph = seeker.resultPath[bigIndex];
+                    PathFinderGraph secondGraph = seeker.resultPath[bigIndex + 1];
+                    minX = levelCoordinator.GetLevelLeftXFromCellX(Mathf.Min(firstGraph.x, secondGraph.x));
+                    maxX = levelCoordinator.GetLevelRightXFromCellX(Mathf.Max(firstGraph.x, secondGraph.x));
+                    minY = levelCoordinator.GetLevelDownYFromCellY(Mathf.Min(firstGraph.y, secondGraph.y));
+                    maxY = levelCoordinator.GetLevelUpYFromCellY(Mathf.Max(firstGraph.y, secondGraph.y));
+                }
+
                 for (int x = minX; x <= maxX; x++)
                 {
                     for (int y = minY; y <= maxY; y++)
@@ -141,12 +158,11 @@ namespace Platformer2D.Assets.PathFinder
 
         private PathFinderResult CreateResult()
         {
-            PathFinderResult result = new PathFinderResult();
+            PathFinderResult result = new PathFinderResult(this, seeker.isFound);
             foreach(PathFinderGraph graph in seeker.resultPath)
             {
                 result.resultPath.Add(new Vector2(graph.x, graph.y) + levelCoordinator.worldOffSet);
             }
-            result.isFound = seeker.isFound;
             return result;
         }
     }

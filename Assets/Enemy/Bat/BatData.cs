@@ -5,5 +5,6 @@
         public BatView view;
         public float normalSpeed;
         public float chaseSpeed;
+        public BatState state;
     }
 }

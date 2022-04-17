@@ -36,5 +36,10 @@
         public const string BAT_PREFAB = "Bat/Bat";
         public const string BAT_MODEL = "Bat/BatModel";
         public const string BAT_FLY_ANNIMATION_TRACK = "Bat/BatFlyAnimation";
+
+        public const string CHEST_PREFAB = "Chest/Chest";
+        public const string CHEST_IDLE_ANIMATION = "Chest/ChestIdle";
+        public const string CHEST_OPEN_ANIMATION = "Chest/ChestOpening";
+        public const string CHEST_CLOSE_ANIMATION = "Chest/ChestClosing";
     }
 }

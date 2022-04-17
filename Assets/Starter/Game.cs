@@ -1,5 +1,6 @@
 using Platformer2D.Assets.CameraScripts;
 using Platformer2D.Assets.ChainMace;
+using Platformer2D.Assets.Chest;
 using Platformer2D.Assets.Coin;
 using Platformer2D.Assets.EndLevel;
 using Platformer2D.Assets.Enemy.Bat;
@@ -28,6 +29,7 @@ namespace Platformer2D.Assets.Starter
         private ChainMaceController chainMaceController;
         private BatManager batManager;
         private PathFinderManager pathFinderManager;
+        private ChestManager chestManager;
         
         public void Start()
         {
@@ -70,6 +72,9 @@ namespace Platformer2D.Assets.Starter
             playerBulletController = new PlayerBulletController();
             playerController.actionFire += playerBulletController.Fire;
 
+            chestManager = new ChestManager(levelData);
+            chestManager.PlaceRandom();
+
             gameData.gameState = GameState.Playing;
         }
 
@@ -83,6 +88,7 @@ namespace Platformer2D.Assets.Starter
             playerBulletController.Update(deltaTime);
             chainMaceController.Update(deltaTime);
             batManager.Update(deltaTime);
+            chestManager.Update(deltaTime);
 
             pathFinderManager.Update();
         }

@@ -25,3 +25,5 @@ MonoBehaviour:
   chainMaceMinDistantion: 6
   batCount: 10
   batMinDistantion: 1
+  chestCount: 10
+  chestMinDistance: 5

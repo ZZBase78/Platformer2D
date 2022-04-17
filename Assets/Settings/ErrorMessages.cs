@@ -13,5 +13,6 @@
         public const string PLAYER_BULLET_VIEW_NOT_FOUND = "Error #8: Component not found";
         public const string CHAIN_MACE_VIEW_NOT_FOUND = "Error #9: Component not found";
         public const string BAT_VIEW_NOT_FOUND = "Error #10: Component not found";
+        public const string CHEST_VIEW_NOT_FOUND = "Error #11: Component not found";
     }
 }

@@ -18,5 +18,7 @@ namespace Platformer2D.Assets.LevelScripts
         public float chainMaceMinDistantion;
         public int batCount;
         public float batMinDistantion;
+        public int chestCount;
+        public int chestMinDistance;
     }
 }

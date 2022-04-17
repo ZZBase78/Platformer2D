@@ -8,6 +8,7 @@ namespace Platformer2D.Assets.LevelScripts
     {
         public bool isWall;
         public bool isCoin;
+        public bool isChest;
         public CannonLevelValue cannon;
         public ChainMaceLevelValue chainMace;
 
@@ -19,6 +20,7 @@ namespace Platformer2D.Assets.LevelScripts
             isWall = false;
             isTiled = false;
             isCoin = false;
+            isChest = false;
             tile = null;
             cannon = CannonLevelValue.None;
             chainMace = ChainMaceLevelValue.None;
@@ -29,6 +31,7 @@ namespace Platformer2D.Assets.LevelScripts
             return
                 (isWall == false) && 
                 (isCoin == false) && 
+                (isChest == false) && 
                 (cannon == CannonLevelValue.None) && 
                 (chainMace == ChainMaceLevelValue.None);
         }

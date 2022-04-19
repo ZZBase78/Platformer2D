@@ -44,5 +44,7 @@
         public const string CHEST_IDLE_ANIMATION = "Chest/ChestIdle";
         public const string CHEST_OPEN_ANIMATION = "Chest/ChestOpening";
         public const string CHEST_CLOSE_ANIMATION = "Chest/ChestClosing";
+
+        public const string WORLD_BACKGROUND_PREFAB = "World/Background/WorldBackground";
     }
 }

@@ -11,6 +11,7 @@ using Platformer2D.Assets.PathFinder;
 using Platformer2D.Assets.PlayerBullet;
 using Platformer2D.Assets.PlayerScripts;
 using Platformer2D.Assets.Portal;
+using Platformer2D.Assets.World.Background;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -31,9 +32,13 @@ namespace Platformer2D.Assets.Starter
         private BatManager batManager;
         private PathFinderManager pathFinderManager;
         private ChestManager chestManager;
+        private WorldBackgroundController worldBackgroundController;
         
         public void Start()
         {
+
+            worldBackgroundController = new WorldBackgroundController();
+
             gameData = new GameData();
 
             LevelData levelData = new LevelGenerator().Generate();
@@ -93,6 +98,8 @@ namespace Platformer2D.Assets.Starter
             chainMaceController.Update(deltaTime);
             batManager.Update(deltaTime);
             chestManager.Update(deltaTime);
+
+            worldBackgroundController.Update();
 
             pathFinderManager.Update();
         }

@@ -6,6 +6,7 @@ using Platformer2D.Assets.EndLevel;
 using Platformer2D.Assets.Enemy.Bat;
 using Platformer2D.Assets.Enemy.Cannon;
 using Platformer2D.Assets.LevelScripts;
+using Platformer2D.Assets.LevelScripts.Background;
 using Platformer2D.Assets.PathFinder;
 using Platformer2D.Assets.PlayerBullet;
 using Platformer2D.Assets.PlayerScripts;
@@ -37,6 +38,9 @@ namespace Platformer2D.Assets.Starter
 
             LevelData levelData = new LevelGenerator().Generate();
             new LevelDisplay().Display(levelData);
+
+            BackgroundController backgroundController = new BackgroundController(levelData);
+            backgroundController.Generate();
 
             pathFinderManager = new PathFinderManager(levelData);
 

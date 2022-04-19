@@ -14,5 +14,6 @@
         public const string CHAIN_MACE_VIEW_NOT_FOUND = "Error #9: Component not found";
         public const string BAT_VIEW_NOT_FOUND = "Error #10: Component not found";
         public const string CHEST_VIEW_NOT_FOUND = "Error #11: Component not found";
+        public const string BACKGROUND_TILEMAP_NOT_FOUND = "Error #12: TileMap component not found";
     }
 }

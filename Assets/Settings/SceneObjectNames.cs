@@ -4,6 +4,7 @@
     {
         public const string LEVEL_GRID = "LevelGrid";
         public const string WALL_TILEMAP = "WallTileMap";
+        public const string BACKGROUND_TILEMAP = "BackgroundTileMap";
         public const string CANNON_BULLET = "CannonBullet";
         public const string CANNON_BULLET_POOL = "POOL_CannonBullet";
 

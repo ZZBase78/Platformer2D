@@ -10,6 +10,9 @@
         public const string LEVEL_GRID = "Level/LevelGrid";
 
         public const string WALL_TILEMAP = "Level/WallTilemap";
+        public const string BACKGROUND_TILEMAP = "Level/Background/BackgroundTilemap";
+        public const string BACKGROUND_TILESET = "Level/Background/BackgroundTileSet";
+        public const string BACKGROUND_GENERATOR_SETTINGS = "Level/Background/BackgroundGeneratorSettings";
 
         public const string CAMERA_MODEL = "Camera/CameraModel";
         

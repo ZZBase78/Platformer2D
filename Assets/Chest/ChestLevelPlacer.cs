@@ -27,7 +27,17 @@ namespace Platformer2D.Assets.Chest
 
             List<Vector2Int> choosedPositions = ChoosePositions(possiblePosition);
 
+            SetLevelData(choosedPositions);
+
             return choosedPositions;
+        }
+
+        private void SetLevelData(List<Vector2Int> choosedPositions)
+        {
+            foreach (var position in choosedPositions)
+            {
+                levelData.levelElements[position.x, position.y].isChest = true;
+            }
         }
 
         private List<Vector2Int> ChoosePositions(List<Vector2Int> possiblePositions)

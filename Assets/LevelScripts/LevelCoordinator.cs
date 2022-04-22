@@ -14,12 +14,12 @@ namespace Platformer2D.Assets.LevelScripts
         private int wallWidth;
         private int wallHeight;
 
-        int exitCellX;
-        int exitCellY;
-        int levelExitMinX;
-        int levelExitMaxX;
-        int levelExitMinY;
-        int levelExitMaxY;
+        private int exitCellX;
+        private int exitCellY;
+        private int levelExitMinX;
+        private int levelExitMaxX;
+        private int levelExitMinY;
+        private int levelExitMaxY;
 
         public Vector2 worldOffSet = new Vector2(0.5f, 0.5f);
 

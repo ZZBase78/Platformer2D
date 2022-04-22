@@ -46,5 +46,8 @@
         public const string CHEST_CLOSE_ANIMATION = "Chest/ChestClosing";
 
         public const string WORLD_BACKGROUND_PREFAB = "World/Background/WorldBackground";
+
+        public const string KEY_PREFAB = "DoorKey/Key";
+        public const string DOOR_PREFAB = "DoorKey/Door";
     }
 }

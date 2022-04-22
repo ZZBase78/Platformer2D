@@ -56,7 +56,7 @@ namespace Platformer2D.Assets.PlayerScripts
 
         public void OnTriggerEnter2D(Collider2D collision)
         {
-            if (collision.CompareTag(GameTags.COIN))
+            if (collision.CompareTag(GameTags.COIN) || collision.CompareTag(GameTags.KEY))
             {
                 ICollectable collectable = collision.GetComponentInParent<ICollectable>();
                 if (collectable != null) collectable.Collect();

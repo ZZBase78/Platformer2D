@@ -2,6 +2,8 @@ using Platformer2D.Assets.CameraScripts;
 using Platformer2D.Assets.ChainMace;
 using Platformer2D.Assets.Chest;
 using Platformer2D.Assets.Coin;
+using Platformer2D.Assets.DoorKey.Door;
+using Platformer2D.Assets.DoorKey.Key;
 using Platformer2D.Assets.EndLevel;
 using Platformer2D.Assets.Enemy.Bat;
 using Platformer2D.Assets.Enemy.Cannon;
@@ -11,6 +13,7 @@ using Platformer2D.Assets.PathFinder;
 using Platformer2D.Assets.PlayerBullet;
 using Platformer2D.Assets.PlayerScripts;
 using Platformer2D.Assets.Portal;
+using Platformer2D.Assets.Quest;
 using Platformer2D.Assets.World.Background;
 using System.Collections.Generic;
 using UnityEngine;
@@ -33,6 +36,8 @@ namespace Platformer2D.Assets.Starter
         private PathFinderManager pathFinderManager;
         private ChestManager chestManager;
         private WorldBackgroundController worldBackgroundController;
+        private KeyController keyController;
+        private DoorController doorController;
         
         public void Start()
         {
@@ -84,6 +89,11 @@ namespace Platformer2D.Assets.Starter
             chestManager = new ChestManager(levelData);
             chestManager.PlaceRandom();
 
+            doorController = new DoorController(levelData);
+            keyController = new KeyController(levelData);
+
+            new QuestCollectAction(keyController, doorController);
+
             gameData.gameState = GameState.Playing;
         }
 
@@ -98,6 +108,8 @@ namespace Platformer2D.Assets.Starter
             chainMaceController.Update(deltaTime);
             batManager.Update(deltaTime);
             chestManager.Update(deltaTime);
+            keyController.Update(deltaTime);
+            doorController.Update(deltaTime);
 
             worldBackgroundController.Update();
 
